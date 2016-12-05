@@ -463,10 +463,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d705b87889aa644883ef878b39262d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  velocidade: 250
-  saltoAltura: 700
-  saltoDistancia: 300
+  velocidade: 10
+  saltoAltura: 400
+  saltoDistancia: 200
   chaoVerificador: {fileID: 1955206795}
+  layerColisao:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!61 &1735739747
 BoxCollider2D:
   m_ObjectHideFlags: 0

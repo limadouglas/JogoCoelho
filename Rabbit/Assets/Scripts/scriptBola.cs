@@ -7,6 +7,10 @@ public class scriptBola : MonoBehaviour {
 	public float saltoAltura;
 	public float saltoDistancia;
 	public Transform chaoVerificador;
+	private float raioChao;
+	public LayerMask layerColisao;
+	private int direcaoPulo;
+	private bool chamarCoroutine;
 
 
 	Vector2 tela;				// dimenções da tela.
@@ -20,33 +24,30 @@ public class scriptBola : MonoBehaviour {
 		// convertendo screen width e height para world.
 		tela = Camera.main.ScreenToWorldPoint (new Vector2 (Camera.main.pixelWidth, Camera.main.pixelHeight) );
 		transform.position = new Vector2 (-(tela.x-2), -(tela.y-1.2f));		// definindo posiçã da bola.
+		
+		raioChao = 0.2f;
+		direcaoPulo = 0;
+		chamarCoroutine = true;
 
 	}
 
-	void FixedUpdate () {
+	void FixedUpdate ()
+	{
 
-		if (   Physics2D.Linecast (  transform.position, chaoVerificador.position, 1 << LayerMask.NameToLayer("LayerChao")  )  )
-			estaNoChao = true;
-		else
-			estaNoChao = false;
-
+		// verificando se o objeto está colidindo com o chao em um raio de '0.2f'.
+		estaNoChao = Physics2D.OverlapCircle (chaoVerificador.position, raioChao, layerColisao);
+	
 		// verificando toque na tela.
 
-		if ( estaNoChao ) {												// verificando se o objeto esta no chao;	
+		if (estaNoChao) {												// verificando se o objeto esta no chao;	
 
+			if (Input.GetTouch (Input.touchCount-1).position.y >= (Screen.height / 2) ) 	// verificando se o toque foi no na parte superior(PULO).
+					movePula ();
+			else if (Input.GetTouch (Input.touchCount-1).position.x >= (Screen.width / 2))	// verificando se o toque foi na parte da frente(DIREITA).
+					mover (1);
+			else if (Input.GetTouch (Input.touchCount-1).position.x < (Screen.width / 2))	// verificando se o toque foi na parte de trás(ESQUEDA).
+					mover (-1);
 
-			if ((Input.touches.Length <= 0))								// verificando se a tela não esta sendo pressionada.
-				moveParar ();
-
-			if (Input.GetTouch (0).position.y >= (Screen.height / 2)) 		// verificando se o toque foi no na parte superior(PULO).
-				movePula ();
-			else if (Input.GetTouch (0).position.x >= (Screen.width / 2))	// verificando se o toque foi na parte da frente(DIREITA).
-				moveFrente ();
-			else if (Input.GetTouch (0).position.x < (Screen.width / 2))	// verificando se o toque foi na parte de trás(ESQUEDA).
-				moveTras ();
-
-			if ((Input.touches.Length <= 0))								// verificando se a tela não esta sendo pressionada.
-				moveParar ();
 		}
 
 
@@ -59,36 +60,27 @@ public class scriptBola : MonoBehaviour {
 	}
 
 
+	// metodo mover na horizontal onde quando recebe 1 se move para frente, ao receber -1 se move para trás.
+	void mover(int lado) {
+		transform.Translate ( (Vector2.right * velocidade * lado) * Time.deltaTime);
 
-	void moveFrente() {
-			//transform.Translate (Vector2.right * velocidade * Time.deltaTime);
-			GetComponent<Rigidbody2D> ().velocity = new Vector2 (velocidade * Time.deltaTime , 0);
+		if (chamarCoroutine)
+			StartCoroutine (definirDirecaoPulo(lado));
 	}
+				
 
-
-
-	void moveTras() {
-		GetComponent<Rigidbody2D> ().velocity = new Vector2 (-(velocidade * Time.deltaTime), 0);
-		//transform.Translate (Vector2.left * velocidade * Time.deltaTime);
-	}
-
-
-
-	void moveParar() {
-		
-		GetComponent<Rigidbody2D> ().velocity = Vector2.zero;
-
-		// ao reiniciar o 'isKeinematic', o gameObject perde velocidade, força e etc ... 
-		GetComponent<Rigidbody2D> ().isKinematic = true;
-		GetComponent<Rigidbody2D> ().isKinematic = false;
-	}
-		
-
-
+	// metodo responsalvel pelo pulo do objeto.
 	void movePula() {
-		  moveParar();									// zerando para o saldo não ter distancia maior que o desejado.
-		  GetComponent<Rigidbody2D> ().AddForce (new Vector2 (saltoDistancia, saltoAltura));	// aplicando força de salto.
-		//GetComponent<Rigidbody2D> ().AddForce(transform.up * saltoAltura);
+		GetComponent<Rigidbody2D> ().AddForce (new Vector2 (saltoDistancia*direcaoPulo, saltoAltura));
+	}
+
+
+	private IEnumerator definirDirecaoPulo(int lado) {
+		direcaoPulo = lado;
+		chamarCoroutine = false;
+		yield return new WaitForSeconds (0.3f);
+		direcaoPulo = 0;
+		chamarCoroutine = true;
 	}
 
 
