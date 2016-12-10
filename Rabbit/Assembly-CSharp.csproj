@@ -45,9 +45,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scripts\ScriptCamera.cs" />
      <Compile Include="Assets\Scripts\ScriptFundo.cs" />
-     <Compile Include="Assets\Scripts\scriptBola.cs" />
-     <Compile Include="Assets\Scripts\scriptObstaculo.cs" />
+     <Compile Include="Assets\Scripts\ScriptMataObstaculoChaoFixo.cs" />
+     <Compile Include="Assets\Scripts\ScriptObstaculo.cs" />
+     <Compile Include="Assets\Scripts\ScriptObstaculoDois.cs" />
+     <Compile Include="Assets\Scripts\ScriptPlayer.cs" />
+     <Compile Include="Assets\Scripts\ScriptUtil.cs" />
      <None Include="Assets\Standard Assets\Fonts\OpenSans\License!.txt" />
      <None Include="Assets\Standard Assets\CrossPlatformInput\CrossPlatformInputGuidelines.txt" />
  <Reference Include="UnityEngine.UI">
