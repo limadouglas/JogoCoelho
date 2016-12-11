@@ -5,18 +5,7 @@ public class ScriptCamera : MonoBehaviour {
 
 	public Transform playerPosicao;
 	public Vector2 velocidade;
-	public float suavizacao = 0.0f;
-	private float posicaoInicialPlayer;
-	public GameObject obstaculoAlto;
-	public GameObject obstaculoAltoDois;
-	private Vector2 tela;
-	private float valorRandomico;
-
-
-	void Start() {
-		posicaoInicialPlayer = playerPosicao.position.x;
-	}
-
+	public float suavizacao;
 
 	void FixedUpdate () {
 		

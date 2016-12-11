@@ -43,6 +43,18 @@ public class ScriptObstaculo : MonoBehaviour {
 	}
 
 
+
+	void parar(){
+		GetComponent<Rigidbody2D> ().velocity = new Vector2 (0, 0);
+	}
+
+
+
+	void retomar(){
+		GetComponent<Rigidbody2D> ().velocity = new Vector2 (-(velocidade) * Time.deltaTime, 0);
+	}
+
+
 }
 
 

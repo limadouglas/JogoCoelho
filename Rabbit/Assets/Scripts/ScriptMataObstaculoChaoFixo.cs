@@ -5,6 +5,11 @@ public class ScriptMataObstaculoChaoFixo : MonoBehaviour {
 
 	public Camera cam;
 	private Vector2 tela;
+	private Animator anim;
+
+	void Start() {
+		anim = GetComponent<Animator>();
+	}
 	
 	// Update is called once per frame
 	void Update () {
@@ -12,4 +17,13 @@ public class ScriptMataObstaculoChaoFixo : MonoBehaviour {
 			Destroy (gameObject);	// destruindo objeto
 		}
 	}
+
+	void parar(){
+		anim.SetBool ("pararAnimacao", true);
+	}
+
+	void retomar(){
+		anim.SetBool ("pararAnimacao", false);
+	}
+
 }

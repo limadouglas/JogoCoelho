@@ -13,6 +13,9 @@ public class ScriptPlayer : MonoBehaviour {
 	private bool chamarCoroutine;
 	private Animator anim;
 	public float posicaoInicial;
+	private GameObject gameEngine;
+	private bool iniciarJogo;
+	private bool acabouJogo;
 
 
 	Vector2 tela;				// dimenções da tela.
@@ -20,6 +23,10 @@ public class ScriptPlayer : MonoBehaviour {
 	private bool estaNoChao;	// verifica se o gameObject está no chão.
 
 	void Start () {
+
+		gameEngine = GameObject.FindGameObjectWithTag ("GameEngine");
+		iniciarJogo = true;
+		acabouJogo = false;
 
 		anim = GetComponent<Animator>();
 
@@ -32,7 +39,7 @@ public class ScriptPlayer : MonoBehaviour {
 
 		// convertendo screen width e height para world.
 		tela = Camera.main.ScreenToWorldPoint (new Vector2 (Camera.main.pixelWidth, Camera.main.pixelHeight) );
-		transform.position = new Vector2 (-(tela.x-2), -(tela.y-1.2f));		// definindo posição da player.
+		transform.position = new Vector2 (-(tela.x-2), -(tela.y/2));		// definindo posição da player.
 		posicaoInicial = transform.position.x;	// salvando posicao inicial para que o personagem não saia da tela pela esquerda.
 
 
@@ -48,11 +55,12 @@ public class ScriptPlayer : MonoBehaviour {
 		anim.SetBool ("Chao", estaNoChao);
 	
 
-
+		if(!acabouJogo){
+			
 		if (estaNoChao) {												// verificando se o objeto esta no chao;	
 
 			// verificando toque na tela.
-			/*
+			
 			if (Input.GetTouch (Input.touchCount-1).position.y >= (Screen.height / 2)) 	// verificando se o toque foi no na parte superior(PULO).	
 				movePula ();
 			else if (Input.GetTouch (Input.touchCount-1).position.x >= (Screen.width / 2))	// verificando se o toque foi na parte da frente(DIREITA).
@@ -61,10 +69,11 @@ public class ScriptPlayer : MonoBehaviour {
 					mover (-1);
 			else
 				anim.SetFloat("Velocidade", 0);
-			*/
+			
 
+			/*
 			// verificando pelas setas do teclado
-
+			
 			if(Input.GetKey(KeyCode.UpArrow))
 				movePula ();
 			else if (Input.GetKey(KeyCode.RightArrow))	// verificando se a seta foi na parte da frente(DIREITA).
@@ -73,7 +82,7 @@ public class ScriptPlayer : MonoBehaviour {
 				mover (-1);
 			else
 				anim.SetFloat("Velocidade", 0);
-
+			*/
 		}
 
 
@@ -82,13 +91,16 @@ public class ScriptPlayer : MonoBehaviour {
 			transform.position = new Vector2( 182, transform.position.y);	// reposicionando gameObjet.
 		else if (transform.position.x < posicaoInicial) 					// não deixa o gameObject ultrapassar a tela do lado esquerdo.
 			transform.position = new Vector2( posicaoInicial, transform.position.y);	// reposicionando gameObjet.
-
+		}
 	}
 
 
 	// metodo mover na horizontal onde quando recebe 1 se move para frente, ao receber -1 se move para trás.
 	void mover(int lado) {
 		
+		if (iniciarJogo)
+			chamarJogoInicio ();
+
 		anim.SetFloat("Velocidade", 1);
 
 		// alterando lado do player.
@@ -103,6 +115,11 @@ public class ScriptPlayer : MonoBehaviour {
 
 	// metodo responsalvel pelo pulo do objeto.
 	void movePula() {
+		
+		if (iniciarJogo)
+			chamarJogoInicio ();
+
+		GetComponent<Rigidbody2D> ().velocity = Vector2.zero;
 		GetComponent<Rigidbody2D> ().AddForce (new Vector2 (saltoDistancia*direcaoPulo, saltoAltura));
 		anim.SetBool ("Chao", false);
 	}
@@ -116,6 +133,17 @@ public class ScriptPlayer : MonoBehaviour {
 		chamarCoroutine = true;
 	}
 
+	void chamarJogoInicio() {
+		gameEngine.SendMessage ("jogoInicio");
+		iniciarJogo = false;
+	}
 
+
+	void OnCollisionEnter2D(Collision2D coll) {
+		if (coll.gameObject.tag == "Inimigo" || coll.gameObject.tag == "Animacao") {
+			gameEngine.SendMessage ("jogoFim");
+			acabouJogo = true;
+		}
+	}
 
 }
