@@ -5,6 +5,9 @@ using UnityEngine.SceneManagement;
 public class Main : MonoBehaviour {
 
 	void Awake() {
+		if (PlayerPrefs.GetInt ("som") == 0) {		// 0 = não definido ainda, o padrão é iniciar com som.
+			PlayerPrefs.SetInt ("som", 1);			// 1 = com som; 2 = sem som.
+		}
 
 		PlayerPrefs.SetFloat("checkpoint", 0);
 

@@ -20,7 +20,6 @@ public class ScriptPlayer : MonoBehaviour {
 	private bool estaNoChao;	// verifica se o gameObject está no chão.
 
 
-
 	void Start () {
 
 		// instanciando gameEngine.
@@ -71,13 +70,15 @@ public class ScriptPlayer : MonoBehaviour {
 			if (estaNoChao) {													// verificando se o objeto esta no chao;	
 
 				// verificando por eixo horizontal e vertical.
-					if(CrossPlatformInputManager.GetButton("Jump"))			 	//Input.GetTouch (Input.touchCount-1).position.x >= (Screen.width / 2) 
-						movePula ();
+				if (CrossPlatformInputManager.GetButtonDown ("Jump")) {			 	//Input.GetTouch (Input.touchCount-1).position.x >= (Screen.width / 2) 
+					movePula ();
+					gameEngine.SendMessage ("somPulo");
+				}
 				
-					if (CrossPlatformInputManager.GetAxis("Horizontal") != 0)	// verificando se alguma seta foi pressionada.
+				if (CrossPlatformInputManager.GetAxis ("Horizontal") != 0)	// verificando se alguma seta foi pressionada.
 						mover ();
-					else
-						anim.SetFloat("Velocidade", 0);							// desabilitando animação de andar.
+				else
+					anim.SetFloat ("Velocidade", 0);							// desabilitando animação de andar.
 			}
 
 
@@ -133,6 +134,7 @@ public class ScriptPlayer : MonoBehaviour {
 		if (coll.gameObject.tag == "Inimigo" || coll.gameObject.tag == "Animacao") {
 
 			gameEngine.SendMessage ("jogoFim");
+			gameEngine.SendMessage ("somMorte");
 			acabouJogo = true;
 		}
 

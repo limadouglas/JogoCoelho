@@ -27,9 +27,23 @@ public class ScriptPrincipal : MonoBehaviour {
 	public Sprite spritePlay;				// sprite da imagem de play.
 	public Sprite spritePause;				// sprite da imagem de pause.
 
+	// sistema de som.
+	private GameObject botaoMusica;
+	public Sprite spriteSomAtivado;
+	public Sprite spriteSomDesativado;
+	private bool som;
+
+
+	// audio player.
+	public AudioClip morte;
+	public AudioClip pulo;
 
 
 	void Start () {
+		som = true;												// iniciando som como verdadeiro.
+		botaoMusica = GameObject.Find("BotaoMusica");			// instanciando gameObject BotaoMusica. 
+
+		somAtivadoDesativado ();								// verificando se o jogo ira iniciar com som.
 
 		play = true;											// iniciando play como verdadeiro.
 		botaoPlayPause = GameObject.Find ("BotaoPlayPause");	// intanciando gameObject Play Pause.
@@ -151,5 +165,38 @@ public class ScriptPrincipal : MonoBehaviour {
 		play = !play;																	// mudando estado da varivel.									 
 	}
 
+
+	void somAtivadoDesativado() {
+
+		if (PlayerPrefs.GetInt ("som") == 1) {
+			botaoMusica.GetComponent<Button> ().image.overrideSprite = spriteSomDesativado;
+			GetComponent<AudioSource> ().mute = true;
+		} else {
+			botaoMusica.GetComponent<Button> ().image.overrideSprite = spriteSomAtivado;
+			GetComponent<AudioSource> ().mute = false;
+		}
+	}
+
+
+	void alterarEstadoSom() {
+		if (PlayerPrefs.GetInt ("som") == 1)
+			PlayerPrefs.SetInt ("som", 2);
+		else
+			PlayerPrefs.SetInt ("som", 1);
+
+		somAtivadoDesativado ();
+	}
+
+
+
+	void somPulo() {
+		GetComponent<AudioSource> ().PlayOneShot (pulo);
+	}
+
+
+
+	void somMorte() {
+		GetComponent<AudioSource> ().PlayOneShot (morte);
+	}
 
 }
