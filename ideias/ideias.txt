@@ -1,6 +1,0 @@
-OBSTACULOS:
-
-no chão tera uma pedra(rocha).
-
-										          ( )
-no alto será uma arvore, com formato estranho onde terá uma brecha entre seus galhos, ex:  |.

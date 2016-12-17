@@ -45,14 +45,26 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Main.cs" />
+     <Compile Include="Assets\Scripts\BotaoMusica.cs" />
+     <Compile Include="Assets\Scripts\BotaoPlayPause.cs" />
+     <Compile Include="Assets\Scripts\ScriptBotaoFrente.cs" />
+     <Compile Include="Assets\Scripts\ScriptBotaoPulo.cs" />
+     <Compile Include="Assets\Scripts\ScriptBotaoTras.cs" />
      <Compile Include="Assets\Scripts\ScriptCamera.cs" />
      <Compile Include="Assets\Scripts\ScriptFundo.cs" />
+     <Compile Include="Assets\Scripts\ScriptJoystick.cs" />
      <Compile Include="Assets\Scripts\ScriptMataObstaculoChaoFixo.cs" />
      <Compile Include="Assets\Scripts\ScriptObstaculo.cs" />
      <Compile Include="Assets\Scripts\ScriptObstaculoDois.cs" />
      <Compile Include="Assets\Scripts\ScriptPlayer.cs" />
      <Compile Include="Assets\Scripts\ScriptPrincipal.cs" />
      <Compile Include="Assets\Scripts\ScriptUtil.cs" />
+     <Compile Include="Assets\Scripts\vidas\Vida1.cs" />
+     <Compile Include="Assets\Scripts\vidas\Vida2.cs" />
+     <Compile Include="Assets\Scripts\vidas\Vida3.cs" />
+     <Compile Include="Assets\Scripts\vidas\Vida4.cs" />
+     <Compile Include="Assets\Scripts\vidas\Vida5.cs" />
      <None Include="Assets\Standard Assets\Fonts\OpenSans\License!.txt" />
      <None Include="Assets\Standard Assets\CrossPlatformInput\CrossPlatformInputGuidelines.txt" />
  <Reference Include="UnityEngine.UI">

@@ -8,6 +8,8 @@ TagManager:
   - GameEngine
   - MsgInicio
   - Animacao
+  - JogadorGanhou
+  - CheckPoint
   layers:
   - Default
   - TransparentFX

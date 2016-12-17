@@ -4,15 +4,18 @@ using System.Collections;
 
 public class ScriptObstaculo : MonoBehaviour {
 
-	public float velocidade;			// velocidade do gameObjeto.
+	private float velocidade;			// velocidade do gameObjeto.
 	private float valorRandomico;
-	public Camera cam;
-	public float posicaoInicial;
+	private Camera cam;
+	private float posicaoInicial;
 
 
 
 	void Start () {
-		
+		cam = GameObject.Find ("Main Camera").GetComponent<Camera>();
+
+		velocidade = 70;
+
 		// definindo velocidade de movimentação do gameObject.
 		GetComponent<Rigidbody2D> ().velocity = new Vector2 (-(velocidade) * Time.deltaTime, 0);
 		criaObstaculo (posicaoInicial);
@@ -23,7 +26,7 @@ public class ScriptObstaculo : MonoBehaviour {
 	void FixedUpdate() {
 
 		// verificando se o gameObject está passando do final da tela (ESQUERDA) e o reposiciondo.
-		if (transform.position.x <= cam.transform.position.x - (ScriptUtil.tela.x * 1.2f)) 		// verificando.
+		if (transform.position.x <= cam.transform.position.x - (ScriptUtil.tela.x * 1.2f) && cam.transform.position.x < 170) 		// verificando se utrapassou a tela e não chegou ao fim da fase..
 			criaObstaculo (5);
 	}
 
@@ -31,15 +34,16 @@ public class ScriptObstaculo : MonoBehaviour {
 
 	void criaObstaculo(float distancia) {
 
-		// gerando numero randomico;
-		valorRandomico = (Random.value * 2);
-		if (valorRandomico > -0.5f)
-			valorRandomico = 2;
-		else
-			valorRandomico = 0;
+			// gerando numero randomico;
+			valorRandomico = (Random.value * 2);
+			if (valorRandomico > -0.5f)
+				valorRandomico = 2;
+			else
+				valorRandomico = 0;
 
-		// posicionado gameObject baseado no tamanho da tela e numero randomico.
-		transform.position = new Vector2 (cam.transform.position.x + ScriptUtil.tela.x + valorRandomico + distancia , -2);
+			// posicionado gameObject baseado no tamanho da tela e numero randomico.
+			transform.position = new Vector2 (cam.transform.position.x + ScriptUtil.tela.x + valorRandomico + distancia, -2);
+
 	}
 
 
@@ -54,6 +58,11 @@ public class ScriptObstaculo : MonoBehaviour {
 		GetComponent<Rigidbody2D> ().velocity = new Vector2 (-(velocidade) * Time.deltaTime, 0);
 	}
 
+
+
+	void setPosicaoInicial(int posicaoInicial) {
+		this.posicaoInicial = posicaoInicial;
+	}
 
 }
 
