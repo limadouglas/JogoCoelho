@@ -10,6 +10,7 @@ TagManager:
   - Animacao
   - JogadorGanhou
   - CheckPoint
+  - SoloBateu
   layers:
   - Default
   - TransparentFX

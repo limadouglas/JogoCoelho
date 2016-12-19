@@ -1,0 +1,16 @@
+﻿using UnityEngine;
+using System.Collections;
+
+public class Vida4 : MonoBehaviour {
+
+	void Start () {
+
+		RectTransform rt = GetComponent<RectTransform> ();
+
+		if (PlayerPrefs.GetInt ("vida") >= 4) {
+			rt.sizeDelta = new Vector2 (Screen.width / 15,Screen.width/ 15);
+			rt.position = new Vector2 (Screen.width - (rt.sizeDelta.x * 3.18f), Screen.height * 0.92f);
+		} else
+			Destroy (gameObject);
+	}
+}

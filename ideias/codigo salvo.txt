@@ -1,0 +1,10 @@
+VALOR RANDOMICO:
+
+		// gerando numero randomico;
+		valorRandomico = (Random.value * 2);
+		if (valorRandomico > 0.5f)
+			valorRandomico = 5;
+		else
+			valorRandomico = 0;
+
+		print (valorRandomico);
