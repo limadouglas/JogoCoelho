@@ -13,8 +13,6 @@ public class Player : MonoBehaviour {
 	private Animator anim;
 	public float posicaoInicial;
 	private GameObject gameEngine;
-	private bool iniciarJogo;
-	private static bool acabouJogo;
 	public Camera cam;
 	Vector2 tela;				// dimenções da tela.
 	private bool estaNoChao;	// verifica se o gameObject está no chão.
@@ -23,13 +21,8 @@ public class Player : MonoBehaviour {
 
 	void Start () {
 
-
 		// instanciando gameEngine.
 		gameEngine = GameObject.FindGameObjectWithTag ("GameEngine");
-
-		// variaveis de controle do jogo.
-		iniciarJogo = true;
-		acabouJogo = false;
 
 		// instanciando animator.
 		anim = GetComponent<Animator>();
@@ -44,50 +37,46 @@ public class Player : MonoBehaviour {
 
 		// convertendo screen width e height para world.
 		tela = Camera.main.ScreenToWorldPoint (new Vector2 (Camera.main.pixelWidth, Camera.main.pixelHeight) );
-		transform.position = new Vector2 (-(tela.x-4), -(tela.y/2));		// definindo posição da player.
-		posicaoInicial = transform.position.x;	// salvando posicao inicial para que o personagem não saia da tela pela esquerda.
 
-		if(PlayerPrefs.GetFloat("checkpoint") <= 19 )
-			PlayerPrefs.SetFloat("posicaoinicial", posicaoInicial);				// gravando posicao inicial;
-		else
-			transform.position = new Vector2 (PlayerPrefs.GetFloat("checkpoint") + 3, -(tela.y/2));
+		if (PlayerPrefs.GetFloat("checkpoint") <= 19 ) {
+			transform.position = new Vector2 (-(tela.x-4), 0);		// definindo posição da player.
+			posicaoInicial = transform.position.x;	// salvando posicao inicial para que o personagem não saia da tela pela esquerda.
+			PlayerPrefs.SetFloat("posicaoinicial", -(tela.x-4));				// gravando posicao inicial;
+			PlayerPrefs.SetFloat("checkpoint", -(tela.x-4));
+		} else
+			transform.position = new Vector2 (PlayerPrefs.GetFloat("checkpoint"), 0);
 	}
 
 
 
 	void FixedUpdate () {
 
-		if (iniciarJogo && Input.GetButton("Fire1"))
-			chamarJogoInicio ();
-
 		// verificando se o objeto está colidindo com o chao em um raio de '0.2f'.
 		estaNoChao = Physics2D.OverlapCircle (chaoVerificador.position, raioChao, layerColisao);
 
 		// aplicando animação.
 		anim.SetBool ("Chao", estaNoChao);
-	
 
-		if(!acabouJogo){													// verificando se o jogo acabou, para os controles pararem. 
-			
-			if (estaNoChao) {													// verificando se o objeto esta no chao;	
+		if (CrossPlatformInputManager.GetAxis ("Horizontal") != 0)		// verificando se alguma seta foi pressionada.
+				mover ();
+		else
+			anim.SetFloat ("Velocidade", 0);							// desabilitando animação de andar.
 
-				// verificando por eixo horizontal e vertical.
-				if (CrossPlatformInputManager.GetButton ("Jump")) 		 	//Input.GetTouch (Input.touchCount-1).position.x >= (Screen.width / 2) 
+		if (estaNoChao) {													// verificando se o objeto esta no chao;	
+
+			// verificando por eixo horizontal e vertical.
+			if (CrossPlatformInputManager.GetButton ("Jump")) 		 	//Input.GetTouch (Input.touchCount-1).position.x >= (Screen.width / 2) 
 					movePula ();				
 				
-				if (CrossPlatformInputManager.GetAxis ("Horizontal") != 0)		// verificando se alguma seta foi pressionada.
-						mover ();
-				else
-					anim.SetFloat ("Velocidade", 0);							// desabilitando animação de andar.
-			}
-
-
-			// reposicionando player ao chegar nos extremos do jogo.
-			if (transform.position.x > (185 + (Screen.width/100)/2)) 					 // não deixa o gameObject ultrapassar a tela do lado direito.
-				transform.position = new Vector2( (185 + (Screen.width/100)/2) , transform.position.y);	// reposicionando gameObjet.
-			else if (transform.position.x < posicaoInicial) 							 // não deixa o gameObject ultrapassar a tela do lado esquerdo.
-				transform.position = new Vector2( posicaoInicial, transform.position.y); // reposicionando gameObjet.
 		}
+
+
+		// reposicionando player ao chegar nos extremos do jogo.
+		if (transform.position.x > (185 + (Screen.width / 100) / 2)) 					 // não deixa o gameObject ultrapassar a tela do lado direito.
+				transform.position = new Vector2 ((185 + (Screen.width / 100) / 2), transform.position.y);	// reposicionando gameObjet.
+		else if (transform.position.x < posicaoInicial) 							 // não deixa o gameObject ultrapassar a tela do lado esquerdo.
+				transform.position = new Vector2 (posicaoInicial, transform.position.y); // reposicionando gameObjet.
+		
 
 	}
 
@@ -114,20 +103,13 @@ public class Player : MonoBehaviour {
 		GetComponent<Rigidbody2D> ().velocity = Vector3.zero;
 		
 		//GetComponent<Rigidbody2D> ().AddForce (new Vector2 (saltoDistancia * CrossPlatformInputManager.GetAxis("Horizontal"), saltoAltura));	
-		GetComponent<Rigidbody2D> ().AddForce (new Vector2 (saltoDistancia * 1, saltoAltura));	
+		GetComponent<Rigidbody2D> ().AddForce (new Vector2 ((saltoDistancia * 1) * Time.deltaTime, saltoAltura * Time.deltaTime));	
 
 		// ativando animação de pulo.
 		anim.SetBool ("Chao", false);
 
 		gameEngine.SendMessage ("somPulo");
 
-	}
-		
-
-	// iniciando o jogo.
-	void chamarJogoInicio() {
-		gameEngine.SendMessage ("jogoInicio");
-		iniciarJogo = false;
 	}
 
 
@@ -137,7 +119,6 @@ public class Player : MonoBehaviour {
 		if (coll.gameObject.tag == "Inimigo" || coll.gameObject.tag == "Animacao") {
 
 			gameEngine.SendMessage ("jogoFim");
-			acabouJogo = true;
 		}
 
 	}
@@ -147,7 +128,6 @@ public class Player : MonoBehaviour {
 
 		if (coll.gameObject.tag == "JogadorGanhou") {
 			gameEngine.SendMessage ("jogadorGanhou");
-			acabouJogo = true;
 		}
 
 		if (coll.gameObject.tag == "CheckPoint") {

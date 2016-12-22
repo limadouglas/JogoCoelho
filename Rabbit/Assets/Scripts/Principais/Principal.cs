@@ -12,13 +12,15 @@ public class Principal : MonoBehaviour {
 
 	private bool  fim;						// var de controle para saber quando o jogo acabou.
 
+	private GameObject player;				// player.
 
 	private GameObject[] objetos;			// array para todos os inimigos.
-
-											// instanciando inimigos alto  1 e 2.
-	public GameObject obstaculo_1;
+											
+	public GameObject obstaculo_1;			// instanciando obstaculo.
 							
 	private GameObject controles;			// gameObject de controle, para esconder e exibir eles. 
+
+	private GameObject[] solos;				// array de solos para controlar o chao.
 
 	// audio player.
 	public AudioClip morte;
@@ -33,30 +35,51 @@ public class Principal : MonoBehaviour {
 	// verificador para saber se passou de fase.
 	private bool ganhou;
 
+	private bool estaNoInicio;
 
 	void Start () {
-
 		ganhou = false;											// ganhou inicia como false.
 		fim = false;											// iniciando fim como false.
+		estaNoInicio = false;
 
+		player = GameObject.Find ("Player");					// instanciando Player.
 		controles = GameObject.Find ("Controles");				// instanciando controle.
 		objetos = GameObject.FindGameObjectsWithTag("Inimigo"); // instanciando todos os inimigos em um array.
+		solos = GameObject.FindGameObjectsWithTag("Solo"); // instanciando todos os solos em um array. fase 2.
 		botaoMusica = GameObject.Find("BotaoMusica").GetComponent<Button>();	// instanciando o botao de musica.
 
-		controles.SetActive (false);							// iniciando controles como invisivel.
-		msg.SetActive (true);									// mostrando gameObject de mensagem. 
-		foreach (GameObject obj in objetos) {					//desabilitando todos os obstaculos(inimigos).
+		controles.SetActive (false);							// iniciando controles como invisivel.		
+		foreach (GameObject obj in objetos) {					// desabilitando todos os obstaculos(inimigos).
 			obj.SetActive (false);
 		}
+																// desabilitando todos os solos, menos o que o jogador esta em cima.
+		foreach(GameObject solo in solos) {
+			if(solo.name != "Solo")
+				solo.SetActive (false);
+		}
+
+		if (PlayerPrefs.GetInt ("msgIniciar") == 1 ) {
+			msg.SetActive (true);	
+			PlayerPrefs.SetInt ("msgIniciar", 0);
+			estaNoInicio = true;
+			player.transform.position = new Vector2 (player.transform.position.x, -0.5f);
+			GameObject.Find("Solo").transform.position = new Vector2(player.transform.position.x+0.3f, GameObject.Find("Solo").transform.position.y);
+		} else
+			jogoInicio ();
 
 		somAtivadoDesativado ();								// verificando se o jogo ira iniciar com som.
-
-	}
+	}	
 	
 
 
 	void Update () {
 
+		if (estaNoInicio && Input.GetButtonDown ("Fire1")) {
+			jogoInicio ();
+			estaNoInicio = false;
+			Time.timeScale = 1;	
+		}
+		
 		if (fim && Input.GetButtonDown ("Fire1")) {								// verificnado se fim = true e teve um toque na tela.
 					
 			Time.timeScale = 1;													// retornando tempo ao normal.
@@ -113,11 +136,10 @@ public class Principal : MonoBehaviour {
 		case "Cena_5":
 			criarObstaculosAltofase5 ();
 			break;
-
 		}
 
-																			//mostrando obstaculos.
-		foreach (GameObject obj in objetos) 
+		//mostrando obstaculos.
+		foreach (GameObject obj in objetos)
 			obj.SetActive (true);
 
 	}
@@ -170,7 +192,7 @@ public class Principal : MonoBehaviour {
 		
 
 	void msgGanhou() {
-		msgIniciarReiniciar.text = "Ir para fase " + (PlayerPrefs.GetInt("fase") + 1).ToString();						// alterando msg.
+		msgIniciarReiniciar.text = "Ir para fase " + (PlayerPrefs.GetInt("fase") + 1).ToString();	// alterando msg.
 		msg.SetActive (true);											// exibindo msg.
 		Time.timeScale = 0;												// parando tempo.			
 	}
@@ -209,7 +231,8 @@ public class Principal : MonoBehaviour {
 	// OBSTACULOS DE DIVERSAS FASES.
 
 	// metodo so será chamado quando estiver na fase 1.
-	void criarObstaculosAltofase1() {
+	void criarObstaculosAltofase1() {	
+
 		// Instanciando Obstaculos alto 1 e 2. Se estiver na fase 1.
 		Instantiate (obstaculo_1).SendMessage("setPosicaoInicial", 5);  
 		Instantiate (obstaculo_1).SendMessage("setPosicaoInicial", 18);
@@ -218,9 +241,16 @@ public class Principal : MonoBehaviour {
 
 	// metodo so será chamado quando estiver na fase 2.
 	void criarObstaculosAltofase2 () {
-		for(int i=0; i<5; i++)
-			Instantiate (obstaculo_1);
 
+		// mostando solos.
+		foreach(GameObject solo in solos) {
+			if(solo.name != "Solo_1")
+				solo.SetActive (true);
+		}
+
+		player.transform.position = new Vector2 (player.transform.position.x, 1f);
+		GameObject.Find("Solo").transform.position = new Vector2(PlayerPrefs.GetFloat("checkpoint"), GameObject.Find("Solo").transform.position.y);
+		//GameObject.Find ("Solo").GetComponent<Rigidbody2D> ().isKinematic = true;
 	}
 
 	// metodo so será chamado quando estiver na fase 3.

@@ -16,7 +16,7 @@ public class ScriptCamera : MonoBehaviour {
 	void FixedUpdate () {		
 		
 		// movendo camera junto com personagem.
-		if( (playerPosicao.position.x + (Screen.width/100)/1.5f ) < 181)
+		if( (playerPosicao.position.x + (Screen.width/100)/3f ) < 181)
 			transform.position = new Vector3 (Mathf.SmoothDamp (transform.position.x, playerPosicao.position.x+2, ref velocidade.x, suavizacao), transform.position.y, -10); 
 		
 	}

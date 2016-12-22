@@ -7,7 +7,7 @@ public class BotaoTras : MonoBehaviour {
 		transform.position = new Vector2 (Screen.width/13, Screen.height/6);
 
 
-		GetComponent<RectTransform>().sizeDelta = new Vector2 (Screen.width/ 40, Screen.height/40);
+		GetComponent<RectTransform>().sizeDelta = new Vector2 (Screen.width/ 70, Screen.width/ 70);
 	}
 
 }

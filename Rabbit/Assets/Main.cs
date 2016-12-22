@@ -15,7 +15,11 @@ public class Main : MonoBehaviour {
 			PlayerPrefs.SetInt ("vida", 3);
 			PlayerPrefs.SetInt ("fase", 1);
 		}
-		
+
+		//para testar.
+		PlayerPrefs.SetInt ("fase", 2);
+		PlayerPrefs.SetInt ("msgIniciar", 1);
+
 		switch (PlayerPrefs.GetInt ("fase")) {
 
 			case 1:	SceneManager.LoadScene ("Cena_1");
@@ -36,6 +40,7 @@ public class Main : MonoBehaviour {
 			default:SceneManager.LoadScene ("Cena_1");
 					break;
 		}
+
 
 	}
 

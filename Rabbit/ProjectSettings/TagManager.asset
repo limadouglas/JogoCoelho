@@ -11,6 +11,8 @@ TagManager:
   - JogadorGanhou
   - CheckPoint
   - SoloBateu
+  - Solo
+  - Colisao
   layers:
   - Default
   - TransparentFX

@@ -5,13 +5,12 @@ BUGS:
 IDEIAS:
 
 
+criar efeito de onda.
+
+criar efeito de espirar agua quando o player cair nela.
+
+
 A FAZER:
-
-Sistema de vidas: usuario ira ter três vidas a cada fase uma nova vida será acrescentada (maximo 5 vidas), 
-quando morrer todas ira aparecer uma roleta com trê opções: ganhar uma nova vida, não ganhar vida, 
-ganhar vida se assistir propaganda ;) .
-
-final da fase.
 
 Fases: serão cinco fases (se der tempo dez), 
 
