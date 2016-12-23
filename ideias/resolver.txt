@@ -9,10 +9,14 @@ criar efeito de onda.
 
 criar efeito de espirar agua quando o player cair nela.
 
+colocar objetos de fundo em todas as fases para dar um efeito realista.
+
+colocar uma cenoura de ouro em todas as fases, a cenoura irá representar uma vida,o usuario não ganhara vida ao somente concluir a fase.
+
 
 A FAZER:
 
-Fases: serão cinco fases (se der tempo dez), 
+Fases: serão cinco fases!
 
 
  
