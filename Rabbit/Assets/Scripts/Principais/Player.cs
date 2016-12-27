@@ -14,7 +14,6 @@ public class Player : MonoBehaviour {
 	public float posicaoInicial;
 	private GameObject gameEngine;
 	public Camera cam;
-	Vector2 tela;				// dimenções da tela.
 	private bool estaNoChao;	// verifica se o gameObject está no chão.
 	private bool podePular;
 
@@ -35,14 +34,12 @@ public class Player : MonoBehaviour {
 
 		// defindo posicao inicial do Player.
 
-		// convertendo screen width e height para world.
-		tela = Camera.main.ScreenToWorldPoint (new Vector2 (Camera.main.pixelWidth, Camera.main.pixelHeight) );
 
 		if (PlayerPrefs.GetFloat("checkpoint") <= 19 ) {
-			transform.position = new Vector2 (-(tela.x-4), 0);		// definindo posição da player.
-			posicaoInicial = transform.position.x;	// salvando posicao inicial para que o personagem não saia da tela pela esquerda.
-			PlayerPrefs.SetFloat("posicaoinicial", -(tela.x-4));				// gravando posicao inicial;
-			PlayerPrefs.SetFloat("checkpoint", -(tela.x-4));
+			transform.position = new Vector2 (-((Screen.width / 100)/4), 0);				// definindo posição da player.
+			posicaoInicial = transform.position.x;											// salvando posicao inicial para que o personagem não saia da tela pela esquerda.
+			PlayerPrefs.SetFloat("posicaoinicial",-((Screen.width / 100)/4));				// gravando posicao inicial;
+			PlayerPrefs.SetFloat("checkpoint", -((Screen.width / 100)/4));
 		} else
 			transform.position = new Vector2 (PlayerPrefs.GetFloat("checkpoint"), 0);
 	}
@@ -57,12 +54,12 @@ public class Player : MonoBehaviour {
 		// aplicando animação.
 		anim.SetBool ("Chao", estaNoChao);
 
-		if (CrossPlatformInputManager.GetAxis ("Horizontal") != 0)		// verificando se alguma seta foi pressionada.
+		if (estaNoChao) {													// verificando se o objeto esta no chao;
+		
+			if (CrossPlatformInputManager.GetAxis ("Horizontal") != 0)		// verificando se alguma seta foi pressionada.
 				mover ();
-		else
-			anim.SetFloat ("Velocidade", 0);							// desabilitando animação de andar.
-
-		if (estaNoChao) {													// verificando se o objeto esta no chao;	
+			else
+				anim.SetFloat ("Velocidade", 0);							// desabilitando animação de andar.
 
 			// verificando por eixo horizontal e vertical.
 			if (CrossPlatformInputManager.GetButton ("Jump")) 		 	//Input.GetTouch (Input.touchCount-1).position.x >= (Screen.width / 2) 
@@ -102,8 +99,8 @@ public class Player : MonoBehaviour {
 		// zerando velocidade para o pulo sempre ser da mesma velocidade e altura.
 		GetComponent<Rigidbody2D> ().velocity = Vector3.zero;
 		
-		//GetComponent<Rigidbody2D> ().AddForce (new Vector2 (saltoDistancia * CrossPlatformInputManager.GetAxis("Horizontal"), saltoAltura));	
-		GetComponent<Rigidbody2D> ().AddForce (new Vector2 ((saltoDistancia * 1) * Time.deltaTime, saltoAltura * Time.deltaTime));	
+		GetComponent<Rigidbody2D> ().AddForce (new Vector2 ((saltoDistancia * CrossPlatformInputManager.GetAxis("Horizontal")) * Time.deltaTime, saltoAltura * Time.deltaTime));	
+		//GetComponent<Rigidbody2D> ().AddForce (new Vector2 ((saltoDistancia * 1) * Time.deltaTime, saltoAltura * Time.deltaTime));	
 
 		// ativando animação de pulo.
 		anim.SetBool ("Chao", false);
@@ -126,14 +123,16 @@ public class Player : MonoBehaviour {
 
 	void OnTriggerExit2D(Collider2D coll) {
 
-		if (coll.gameObject.tag == "JogadorGanhou") {
-			gameEngine.SendMessage ("jogadorGanhou");
-		}
-
 		if (coll.gameObject.tag == "CheckPoint") {
 			if(PlayerPrefs.GetFloat("checkpoint") < transform.position.x)		// verificação para não gravar checkpoint anteriores, já que é possivel voltar na fase(ir para trás.).
 				PlayerPrefs.SetFloat("checkpoint", transform.position.x);
 		}
+
+		if (coll.gameObject.tag == "JogadorGanhou") {
+			gameEngine.SendMessage ("jogadorGanhou");
+		}
+
+
 
 	}
 

@@ -13,6 +13,7 @@ TagManager:
   - SoloBateu
   - Solo
   - Colisao
+  - LagoPeixe
   layers:
   - Default
   - TransparentFX

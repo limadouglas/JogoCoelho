@@ -67,9 +67,15 @@ public class ObstaculoSolo : MonoBehaviour {
 			coll.GetComponent<Animator>().SetBool("colidiu", true);
 			coll.GetComponent<Rigidbody2D> ().velocity = Vector2.zero;
 			colidiu = true;
+
+			Invoke ("destruir", 0.6f);
 		}
 
 	}
 
+
+	void destruir() {
+		Destroy (gameObject);
+	}
 
 }

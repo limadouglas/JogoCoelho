@@ -62,8 +62,11 @@ public class Principal : MonoBehaviour {
 			msg.SetActive (true);	
 			PlayerPrefs.SetInt ("msgIniciar", 0);
 			estaNoInicio = true;
-			player.transform.position = new Vector2 (player.transform.position.x, -0.5f);
-			GameObject.Find("Solo").transform.position = new Vector2(player.transform.position.x+0.3f, GameObject.Find("Solo").transform.position.y);
+
+			if (SceneManager.GetActiveScene ().name == "Cena_2") {
+				player.transform.position = new Vector2 (player.transform.position.x, -0.5f);
+				GameObject.Find ("Solo").transform.position = new Vector2 (player.transform.position.x + 0.3f, GameObject.Find ("Solo").transform.position.y);
+			}
 		} else
 			jogoInicio ();
 
@@ -87,6 +90,7 @@ public class Principal : MonoBehaviour {
 			if (ganhou) {
 				PlayerPrefs.SetInt ("fase", PlayerPrefs.GetInt ("fase") + 1);	// salvando proxima fase.
 				PlayerPrefs.SetInt ("vida", PlayerPrefs.GetInt ("vida") + 1);	// dando mais uma vida ao player.
+				PlayerPrefs.SetInt("checkpoint", 0);							// zerando checkPoint.
 
 				switch (SceneManager.GetActiveScene ().name) {
 
@@ -175,11 +179,8 @@ public class Principal : MonoBehaviour {
 
 
 	void jogadorGanhou() {
-		
-		PlayerPrefs.SetInt("checkpoint", PlayerPrefs.GetInt("posicaoinicial"));	// zerando checkPoint.
-		controles.SetActive (false);
-		// escondendo controles.
-		GetComponent<AudioSource> ().clip = vitoria;							// som de morte. 
+		controles.SetActive (false);										// escondendo controles.
+		GetComponent<AudioSource> ().clip = vitoria;						// som de morte. 
 		GetComponent<AudioSource> ().loop = false;							// desativando loop.
 		GetComponent<AudioSource> ().Play();								// dando play.	
 		// audio de vitoria.

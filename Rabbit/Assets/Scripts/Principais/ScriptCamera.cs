@@ -10,7 +10,7 @@ public class ScriptCamera : MonoBehaviour {
 
 	void Start() {
 		// posição inicial igual a posicao do player.
-		transform.position = new Vector2 (playerPosicao.position.x, transform.position.y);
+		transform.position = new Vector3 (playerPosicao.position.x, transform.position.y, -10);
 	}
 
 	void FixedUpdate () {		

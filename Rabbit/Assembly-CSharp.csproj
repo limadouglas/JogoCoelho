@@ -65,6 +65,8 @@
      <Compile Include="Assets\Scripts\fase_1\ScriptFase1.cs" />
      <Compile Include="Assets\Scripts\fase_2\ObstaculoSolo.cs" />
      <Compile Include="Assets\Scripts\fase_2\ValoresStaticos.cs" />
+     <Compile Include="Assets\Scripts\fase_3\InimigoAlto.cs" />
+     <Compile Include="Assets\Scripts\fase_3\InimigoBaixo.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
