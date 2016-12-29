@@ -37,7 +37,14 @@ public class Principal : MonoBehaviour {
 
 	private bool estaNoInicio;
 
+	public GameObject roleta;
+
+	public bool uma = true;
+
 	void Start () {
+
+		PlayerPrefs.SetInt ("vida", 1);
+
 		ganhou = false;											// ganhou inicia como false.
 		fim = false;											// iniciando fim como false.
 		estaNoInicio = false;
@@ -45,7 +52,7 @@ public class Principal : MonoBehaviour {
 		player = GameObject.Find ("Player");					// instanciando Player.
 		controles = GameObject.Find ("Controles");				// instanciando controle.
 		objetos = GameObject.FindGameObjectsWithTag("Inimigo"); // instanciando todos os inimigos em um array.
-		solos = GameObject.FindGameObjectsWithTag("Solo"); // instanciando todos os solos em um array. fase 2.
+		solos = GameObject.FindGameObjectsWithTag("Solo"); 		// instanciando todos os solos em um array. fase 2.
 		botaoMusica = GameObject.Find("BotaoMusica").GetComponent<Button>();	// instanciando o botao de musica.
 
 		controles.SetActive (false);							// iniciando controles como invisivel.		
@@ -90,7 +97,7 @@ public class Principal : MonoBehaviour {
 			if (ganhou) {
 				PlayerPrefs.SetInt ("fase", PlayerPrefs.GetInt ("fase") + 1);	// salvando proxima fase.
 				PlayerPrefs.SetInt ("vida", PlayerPrefs.GetInt ("vida") + 1);	// dando mais uma vida ao player.
-				PlayerPrefs.SetInt("checkpoint", 0);							// zerando checkPoint.
+				PlayerPrefs.SetInt ("checkpoint", 0);							// zerando checkPoint.
 
 				switch (SceneManager.GetActiveScene ().name) {
 
@@ -111,8 +118,16 @@ public class Principal : MonoBehaviour {
 					break;
 				}
 				
-			} else
+			} else if (PlayerPrefs.GetInt ("vida") > 0)
 				SceneManager.LoadScene (SceneManager.GetActiveScene ().name);		// atualizando a cena.
+			else {
+				
+				PlayerPrefs.SetFloat("checkpoint", PlayerPrefs.GetFloat("posicaoinicial"));	 // retornando o checkpoint inicial quando todas as vidas acabarem.
+				PlayerPrefs.SetInt("fase", 1);									// retornando para fase 1.
+				PlayerPrefs.SetInt("vida", 3);									// retornando com as três vidas padrão.
+
+				SceneManager.LoadScene ("Cena_1");
+			}
 
 		}
 
@@ -159,24 +174,24 @@ public class Principal : MonoBehaviour {
 
 		PlayerPrefs.SetInt ("vida", PlayerPrefs.GetInt ("vida") - 1);		// tirando uma vida do player.
 
-		fim = true;
-		msgPerdeu ();														// chamando metodo com msg de fim.
-
 		if(PlayerPrefs.GetInt("vida") == 0) {								// verificando se as vidas acabaram.
-			PlayerPrefs.SetFloat("checkpoint", PlayerPrefs.GetFloat("posicaoinicial"));	 // retornando o checkpoint inicial quando todas as vidas acabarem.
-			PlayerPrefs.SetInt("fase", 1);									// retornando para fase 1.
-			PlayerPrefs.SetInt("vida", 3);									// retornando com as três vidas padrão.
-		}
+			chamarRoleta ();												// chamando roleta.
+		} else
+			msgPerdeu ("Toque Para Reiniciar");								// chamando metodo com msg de fim.
 
 	}
 
 
-	void msgPerdeu() {
-		msgIniciarReiniciar.text = "Toque Para Reiniciar";
+	void msgPerdeu(string textoMsg) {
+		fim = true;
+		msgIniciarReiniciar.text = textoMsg;
 		msg.SetActive (true);
 		Time.timeScale = 0;
 	}
 
+	void chamarRoleta () {
+		roleta = Instantiate (roleta);
+	}
 
 	void jogadorGanhou() {
 		controles.SetActive (false);										// escondendo controles.
@@ -268,5 +283,7 @@ public class Principal : MonoBehaviour {
 	void criarObstaculosAltofase5 () {
 		//TODO
 	}
+
+
 
 }
