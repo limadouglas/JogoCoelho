@@ -146,6 +146,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   distanciaMover: 5
   velocidade: 5
+  iniciarTempo: 1
 --- !u!212 &212000011969344920
 SpriteRenderer:
   m_ObjectHideFlags: 1

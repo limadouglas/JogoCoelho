@@ -15,9 +15,14 @@ public class roleta : MonoBehaviour {
 	private GameObject msg;
 	public Text msgTexto;
 	public GameObject painelPropaganda;
+	private bool iniciar;
+
 
 	void Start () {
-		
+
+		iniciar = false;
+		Invoke ("iniciarRoleta", 0.5f);
+
 		cam = GameObject.Find ("Main Camera").GetComponent<Camera>();
 		msg = GameObject.Find ("Mensagem");
 
@@ -40,45 +45,51 @@ public class roleta : MonoBehaviour {
 
 	void Update () {
 
-		seta.GetComponent<RectTransform> ().transform.Rotate (new Vector3 (0, 0, velRotacaoSeta));
 
-		if (pararSeta) {
-			if (gerarNumero) {
-				numero = Random.Range (0, 10);
+		if (iniciar) {
 
-				if (numero <= 1) {
-					perdeuVida ();
-					GameObject.Find ("gameEngine").SendMessage ("msgPerdeu", "Fim de Jogo");
+			seta.GetComponent<RectTransform> ().transform.Rotate (new Vector3 (0, 0, velRotacaoSeta));
 
-					print ("perdeu a vida " + numero.ToString ());
-				} else if (numero <= 4) {
-					ganhouVida ();
-					PlayerPrefs.SetInt ("vida", 1);
-					GameObject.Find ("gameEngine").SendMessage ("msgPerdeu", "Ganhou uma Vida");
-					Destroy (gameObject);
+			if (pararSeta) {
+				if (gerarNumero) {
+					numero = Random.Range (0, 10);
 
-					print ("ganhou a vida " + numero.ToString ());
-				} else {
-					ganhouPropaganda ();
-					estaConectado = verificarConexao ();
+					if (numero <= 1) {
+						pararMinimo = 210;
+						pararMaximo = 260;
+						Invoke ("perdeuVida", 1);
 
-					print ("assista uma propaganda para ganhar a vida " + numero.ToString ());
+						print ("perdeu a vida " + numero.ToString ());
+					} else if (numero <= 4) {
+						pararMinimo = 70;
+						pararMaximo = 140;
+
+						Invoke ("ganhouVida", 1);
+
+						print ("ganhou a vida " + numero.ToString ());
+					} else {
+						pararMinimo = 340;
+						pararMaximo = 350;
+						estaConectado = verificarConexao ();
+
+						print ("assista uma propaganda para ganhar a vida " + numero.ToString ());
+					}
+
+					gerarNumero = false;
 				}
-
-				gerarNumero = false;
 			}
-		}
 
-		if (seta.GetComponent<RectTransform> ().eulerAngles.z > pararMinimo && seta.GetComponent<RectTransform> ().eulerAngles.z < pararMaximo) {
-			velRotacaoSeta = 0;
-			if (numero >= 5) {
-				if (estaConectado)
-					painelPropaganda.SetActive (true);
-				else {
-					GameObject.Find ("gameEngine").SendMessage ("msgPerdeu", "Sem Conexão");
-					recusarPropaganda ();
-				}
-			}                             
+			if (seta.GetComponent<RectTransform> ().eulerAngles.z > pararMinimo && seta.GetComponent<RectTransform> ().eulerAngles.z < pararMaximo) {
+				velRotacaoSeta = 0;
+				if (numero >= 5) {
+					if (estaConectado)
+						Invoke ("ganhouPropaganda", 1);
+					else {
+						GameObject.Find ("gameEngine").SendMessage ("msgPerdeu", "Sem Conexão");
+						recusarPropaganda ();
+					}
+				}                             
+			}
 		}
 			
 	}
@@ -108,21 +119,20 @@ public class roleta : MonoBehaviour {
 
 
 	private void perdeuVida() {
-		pararMinimo = 210;
-		pararMaximo = 260;
+		Destroy (gameObject);
+		GameObject.Find ("gameEngine").SendMessage ("msgPerdeu", "Fim de Jogo");
 	}
 
 
 	private void ganhouVida() {
-		pararMinimo = 70;
-		pararMaximo = 140;
-		
+		Destroy (gameObject);
+		PlayerPrefs.SetInt ("vida", 1);
+		GameObject.Find ("gameEngine").SendMessage ("msgPerdeu", "Ganhou uma Vida");
 	}
 
 
 	private void ganhouPropaganda() {
-		pararMinimo = 340;
-		pararMaximo = 350;
+		painelPropaganda.SetActive (true);
 	}
 
 
@@ -138,5 +148,10 @@ public class roleta : MonoBehaviour {
 			return false;
 		else
 			return true;		
+	}
+
+
+	private void iniciarRoleta(){
+		iniciar = true;
 	}
 }

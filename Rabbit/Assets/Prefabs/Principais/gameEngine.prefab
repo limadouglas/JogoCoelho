@@ -126,8 +126,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd74912b47c78254fb60241d79f1680b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  msg: {fileID: 0}
-  msgIniciarReiniciar: {fileID: 0}
+  msg: {fileID: 1000012687153894, guid: 25723273dbf73ad49866b70e69a96569, type: 2}
+  msgIniciarReiniciar: {fileID: 114000012322297360, guid: bc457138f39ef9740ae15e182bb31420,
+    type: 2}
   obstaculo_1: {fileID: 1000012059526044, guid: a06eaa8336d499f4f81e022fc4041072,
     type: 2}
   morte: {fileID: 8300000, guid: 4a97cb6d948d8fe49a80a2eb57050add, type: 3}
@@ -137,3 +138,4 @@ MonoBehaviour:
   spriteSomDesativado: {fileID: 21300000, guid: 1dcbf76a1fca6a443a3ebbe63fc2a068,
     type: 3}
   roleta: {fileID: 1000010496578198, guid: ca0bf50ca8249f54d906bd685a564ce3, type: 2}
+  uma: 1

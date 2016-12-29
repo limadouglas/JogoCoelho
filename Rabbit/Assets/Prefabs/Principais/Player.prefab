@@ -140,7 +140,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   posicaoInicial: 0
-  cam: {fileID: 0}
+  cam: {fileID: 20000011071025780, guid: 627788c5e37a01942997f40e4f081926, type: 2}
 --- !u!212 &212000010546151006
 SpriteRenderer:
   m_ObjectHideFlags: 1

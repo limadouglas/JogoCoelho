@@ -14,11 +14,17 @@ public class Player : MonoBehaviour {
 	public float posicaoInicial;
 	private GameObject gameEngine;
 	public Camera cam;
-	private bool estaNoChao;	// verifica se o gameObject está no chão.
+	private bool estaNoChao;			// verifica se o gameObject está no chão.
 	private bool podePular;
+	private bool desabilitarPlayer;		// desativador do player.
+	private float gravidadeEscala;
 
 
 	void Start () {
+
+		gravidadeEscala = GetComponent<Rigidbody2D> ().gravityScale;
+
+		desabilitarPlayer = false;		// iniciando o desativar do player como false, para ter controle sobre o coelho.
 
 		// instanciando gameEngine.
 		gameEngine = GameObject.FindGameObjectWithTag ("GameEngine");
@@ -48,33 +54,43 @@ public class Player : MonoBehaviour {
 
 	void FixedUpdate () {
 
-		// verificando se o objeto está colidindo com o chao em um raio de '0.2f'.
-		estaNoChao = Physics2D.OverlapCircle (chaoVerificador.position, raioChao, layerColisao);
+		if (!desabilitarPlayer) {		// verificador para o player estar habilitado ou não.
 
-		// aplicando animação.
-		anim.SetBool ("Chao", estaNoChao);
+			// verificando se o objeto está colidindo com o chao em um raio de '0.2f'.
+			estaNoChao = Physics2D.OverlapCircle (chaoVerificador.position, raioChao, layerColisao);
 
-		if (estaNoChao) {													// verificando se o objeto esta no chao;
-		
-			if (CrossPlatformInputManager.GetAxis ("Horizontal") != 0)		// verificando se alguma seta foi pressionada.
-				mover ();
-			else
-				anim.SetFloat ("Velocidade", 0);							// desabilitando animação de andar.
+			// aplicando animação.
+			anim.SetBool ("Chao", estaNoChao);
 
-			// verificando por eixo horizontal e vertical.
-			if (CrossPlatformInputManager.GetButton ("Jump")) 		 	//Input.GetTouch (Input.touchCount-1).position.x >= (Screen.width / 2) 
+			if (estaNoChao) {													// verificando se o objeto esta no chao;
+
+				if (CrossPlatformInputManager.GetAxis ("Horizontal") == 0 && !CrossPlatformInputManager.GetButton ("Jump"))
+					GetComponent<Rigidbody2D> ().gravityScale = 50;
+				else
+					GetComponent<Rigidbody2D> ().gravityScale = gravidadeEscala;
+					
+
+				if (CrossPlatformInputManager.GetAxis ("Horizontal") != 0) 		// verificando se alguma seta foi pressionada.
+					mover ();
+				 else 
+					anim.SetFloat ("Velocidade", 0);							// desabilitando animação de andar.
+
+
+				// verificando por eixo horizontal e vertical.
+				if (CrossPlatformInputManager.GetButton ("Jump")) 		 	//Input.GetTouch (Input.touchCount-1).position.x >= (Screen.width / 2) 
 					movePula ();				
 				
-		}
+			}
+				
 
 
-		// reposicionando player ao chegar nos extremos do jogo.
-		if (transform.position.x > (185 + (Screen.width / 100) / 2)) 					 // não deixa o gameObject ultrapassar a tela do lado direito.
+			// reposicionando player ao chegar nos extremos do jogo.
+			if (transform.position.x > (185 + (Screen.width / 100) / 2)) 					 // não deixa o gameObject ultrapassar a tela do lado direito.
 				transform.position = new Vector2 ((185 + (Screen.width / 100) / 2), transform.position.y);	// reposicionando gameObjet.
-		else if (transform.position.x < posicaoInicial) 							 // não deixa o gameObject ultrapassar a tela do lado esquerdo.
+			else if (transform.position.x < posicaoInicial) 							 // não deixa o gameObject ultrapassar a tela do lado esquerdo.
 				transform.position = new Vector2 (posicaoInicial, transform.position.y); // reposicionando gameObjet.
 		
-
+		}
 	}
 
 
@@ -112,27 +128,30 @@ public class Player : MonoBehaviour {
 
 	// detectando colisões e finalizando o jogo.
 	void OnCollisionEnter2D(Collision2D coll) {
-		
-		if (coll.gameObject.tag == "Inimigo" || coll.gameObject.tag == "Animacao") {
+		if (!desabilitarPlayer) {
+			if (coll.gameObject.tag == "Inimigo" || coll.gameObject.tag == "Animacao") {
 
-			gameEngine.SendMessage ("jogoFim");
+				gameEngine.SendMessage ("jogoFim");
+				desabilitarPlayer = true;				// desabilitando o controle do coelho.
+			}
 		}
 
 	}
 
 
 	void OnTriggerExit2D(Collider2D coll) {
+		if (!desabilitarPlayer) {
+			if (coll.gameObject.tag == "CheckPoint") {
+				if (PlayerPrefs.GetFloat ("checkpoint") < transform.position.x)		// verificação para não gravar checkpoint anteriores, já que é possivel voltar na fase(ir para trás.).
+				PlayerPrefs.SetFloat ("checkpoint", transform.position.x);
+			}
 
-		if (coll.gameObject.tag == "CheckPoint") {
-			if(PlayerPrefs.GetFloat("checkpoint") < transform.position.x)		// verificação para não gravar checkpoint anteriores, já que é possivel voltar na fase(ir para trás.).
-				PlayerPrefs.SetFloat("checkpoint", transform.position.x);
+			if (coll.gameObject.tag == "JogadorGanhou") {
+				gameEngine.SendMessage ("jogadorGanhou");
+				desabilitarPlayer = true;					// desabilitando o controle do coelho.
+			}
+
 		}
-
-		if (coll.gameObject.tag == "JogadorGanhou") {
-			gameEngine.SendMessage ("jogadorGanhou");
-		}
-
-
 
 	}
 

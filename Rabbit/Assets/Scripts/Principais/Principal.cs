@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 using UnityStandardAssets.CrossPlatformInput;
 
 public class Principal : MonoBehaviour {
-
+	
 											// mensagens.
 	public GameObject msg;					// gameObject para esconder ou exibir mensagem.
 	public Text msgIniciarReiniciar;		// Text para poder alterar texto, cor, tamanho e etc.
@@ -43,7 +43,8 @@ public class Principal : MonoBehaviour {
 
 	void Start () {
 
-		PlayerPrefs.SetInt ("vida", 1);
+		PlayerPrefs.SetInt ("vida", 3);
+		// PlayerPrefs.SetInt ("fase", 3);
 
 		ganhou = false;											// ganhou inicia como false.
 		fim = false;											// iniciando fim como false.
@@ -119,14 +120,13 @@ public class Principal : MonoBehaviour {
 				}
 				
 			} else if (PlayerPrefs.GetInt ("vida") > 0)
-				SceneManager.LoadScene (SceneManager.GetActiveScene ().name);		// atualizando a cena.
+				SceneManager.LoadScene (SceneManager.GetActiveScene ().name);	// atualizando a cena.
 			else {
-				
 				PlayerPrefs.SetFloat("checkpoint", PlayerPrefs.GetFloat("posicaoinicial"));	 // retornando o checkpoint inicial quando todas as vidas acabarem.
 				PlayerPrefs.SetInt("fase", 1);									// retornando para fase 1.
 				PlayerPrefs.SetInt("vida", 3);									// retornando com as três vidas padrão.
 
-				SceneManager.LoadScene ("Cena_1");
+				SceneManager.LoadScene ("Cena_1");								// atualizando a cena.
 			}
 
 		}
@@ -166,6 +166,33 @@ public class Principal : MonoBehaviour {
 
 
 	void jogoFim() {
+
+		// parando objetos e animações.
+
+		foreach (GameObject go in GameObject.FindGameObjectsWithTag ("Inimigo")) {
+			if (go.GetComponent<Rigidbody2D> ()) {
+				go.GetComponent<Rigidbody2D> ().velocity = Vector3.zero;
+			}
+		}
+
+		foreach (GameObject go in GameObject.FindGameObjectsWithTag ("Animacao")) {
+			go.GetComponent<Animator> ().enabled = false;
+		}
+
+
+		// parando inimigos da fase 3.
+		if(SceneManager.GetActiveScene().name == "Cena_3")
+			foreach (GameObject go in GameObject.FindGameObjectsWithTag ("Inimigo")) {
+				if(go.GetComponent<Rigidbody2D>())
+					go.SendMessage ("pararObstaculo");
+			}
+
+		GameObject.Find ("Player").GetComponent<Animator> ().enabled = false;
+		GameObject.Find ("Player").GetComponent<Rigidbody2D> ().velocity = Vector3.zero;
+		GameObject.Find ("Player").transform.Translate (Vector3.zero);
+		GameObject.Find ("Player").GetComponent<Rigidbody2D> ().AddForce(Vector3.zero);
+
+
 		controles.SetActive (false);										// escondendo controles.
 																			
 		GetComponent<AudioSource> ().clip = morte;							// som de morte. 
@@ -174,9 +201,9 @@ public class Principal : MonoBehaviour {
 
 		PlayerPrefs.SetInt ("vida", PlayerPrefs.GetInt ("vida") - 1);		// tirando uma vida do player.
 
-		if(PlayerPrefs.GetInt("vida") == 0) {								// verificando se as vidas acabaram.
-			chamarRoleta ();												// chamando roleta.
-		} else
+		if(PlayerPrefs.GetInt("vida") == 0)									// verificando se as vidas acabaram.
+			Invoke("chamarRoleta", 1);										// chamando roleta.
+		else
 			msgPerdeu ("Toque Para Reiniciar");								// chamando metodo com msg de fim.
 
 	}
@@ -189,9 +216,11 @@ public class Principal : MonoBehaviour {
 		Time.timeScale = 0;
 	}
 
+
 	void chamarRoleta () {
 		roleta = Instantiate (roleta);
 	}
+
 
 	void jogadorGanhou() {
 		controles.SetActive (false);										// escondendo controles.
