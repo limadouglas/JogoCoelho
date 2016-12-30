@@ -64,6 +64,7 @@
      <Compile Include="Assets\Scripts\fase_1\MataObstaculoChaoFixo.cs" />
      <Compile Include="Assets\Scripts\fase_1\ObstaculoAlto.cs" />
      <Compile Include="Assets\Scripts\fase_1\ScriptFase1.cs" />
+     <Compile Include="Assets\Scripts\fase_2\GerarNovaParticula.cs" />
      <Compile Include="Assets\Scripts\fase_2\ObstaculoSolo.cs" />
      <Compile Include="Assets\Scripts\fase_2\ValoresStaticos.cs" />
      <Compile Include="Assets\Scripts\fase_3\InimigoAlto.cs" />

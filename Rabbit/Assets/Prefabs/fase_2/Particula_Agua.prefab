@@ -9,18 +9,18 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1000011555871278}
+  m_RootGameObject: {fileID: 1000011169048670}
   m_IsPrefabParent: 1
---- !u!1 &1000011555871278
+--- !u!1 &1000011169048670
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 4
   m_Component:
-  - 4: {fileID: 4000012713121816}
-  - 198: {fileID: 198000013573853360}
-  - 199: {fileID: 199000010003301992}
+  - 4: {fileID: 4000010735435820}
+  - 198: {fileID: 198000011727722650}
+  - 199: {fileID: 199000011029117742}
   m_Layer: 0
   m_Name: Particula_Agua
   m_TagString: Untagged
@@ -28,25 +28,25 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4000012713121816
+--- !u!4 &4000010735435820
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000011555871278}
+  m_GameObject: {fileID: 1000011169048670}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 171.61609, y: -3.3010464, z: 0}
+  m_LocalPosition: {x: 54.101086, y: 2.1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!198 &198000013573853360
+--- !u!198 &198000011727722650
 ParticleSystem:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000011555871278}
+  m_GameObject: {fileID: 1000011169048670}
   serializedVersion: 4
   lengthInSec: 10
   startDelay:
@@ -91,7 +91,7 @@ ParticleSystem:
   moveWithTransform: 1
   autoRandomSeed: 1
   scalingMode: 1
-  randomSeed: -1306814227
+  randomSeed: 2025394978
   InitialModule:
     serializedVersion: 2
     enabled: 1
@@ -530,11 +530,11 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
       minMaxState: 0
-    cnt0: 30
+    cnt0: 80
     cnt1: 30
     cnt2: 30
     cnt3: 30
-    cntmax0: 30
+    cntmax0: 80
     cntmax1: 30
     cntmax2: 30
     cntmax3: 30
@@ -1765,12 +1765,12 @@ ParticleSystem:
     subEmitterCollision1: {fileID: 0}
     subEmitterDeath: {fileID: 0}
     subEmitterDeath1: {fileID: 0}
---- !u!199 &199000010003301992
+--- !u!199 &199000011029117742
 ParticleSystemRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000011555871278}
+  m_GameObject: {fileID: 1000011169048670}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0

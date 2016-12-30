@@ -19745,6 +19745,11 @@ SpriteRenderer:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
+--- !u!4 &530672285 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 4000011185931784, guid: 402d9c8f96ae0314c9bed108ff5a3488,
+    type: 2}
+  m_PrefabInternal: {fileID: 688963638}
 --- !u!1 &532019085
 GameObject:
   m_ObjectHideFlags: 0
@@ -26351,6 +26356,11 @@ Prefab:
       propertyPath: m_SortingOrder
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 114000011521165618, guid: 402d9c8f96ae0314c9bed108ff5a3488,
+        type: 2}
+      propertyPath: chaoVerificador
+      value: 
+      objectReference: {fileID: 530672285}
     m_RemovedComponents:
     - {fileID: 58000012808215484, guid: 402d9c8f96ae0314c9bed108ff5a3488, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 402d9c8f96ae0314c9bed108ff5a3488, type: 2}
