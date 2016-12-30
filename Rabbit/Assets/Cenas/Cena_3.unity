@@ -26351,7 +26351,8 @@ Prefab:
       propertyPath: m_SortingOrder
       value: 3
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 58000012808215484, guid: 402d9c8f96ae0314c9bed108ff5a3488, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 402d9c8f96ae0314c9bed108ff5a3488, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &690525833
@@ -38983,6 +38984,7 @@ PolygonCollider2D:
   m_Points:
     m_Paths:
     - - {x: 0.40372622, y: -0.3030451}
+      - {x: 0.0018315911, y: 0.3125137}
       - {x: -0.4003962, y: -0.29728192}
       - {x: -0.36408052, y: -0.32656685}
       - {x: -0.00013807788, y: -0.6166848}
