@@ -74,7 +74,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 4000013126669872}
   - 50: {fileID: 50000012336948250}
-  - 114: {fileID: 114000011490924008}
+  - 114: {fileID: 114000012432670712}
   m_Layer: 0
   m_Name: ObstaculoAlto_1
   m_TagString: Inimigo
@@ -115,7 +115,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000012059526044}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 18, y: -2, z: 0}
+  m_LocalPosition: {x: 0, y: -2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
@@ -247,7 +247,7 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &114000011490924008
+--- !u!114 &114000012432670712
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -255,9 +255,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1000012059526044}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 423c19a9e30cd224f924fc27c3583466, type: 3}
+  m_Script: {fileID: 11500000, guid: 36125a030f6841b48b6ab73ab69f05e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  velocidade: 2
 --- !u!212 &212000011016976826
 SpriteRenderer:
   m_ObjectHideFlags: 1

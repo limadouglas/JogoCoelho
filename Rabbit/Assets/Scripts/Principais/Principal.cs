@@ -171,7 +171,7 @@ public class Principal : MonoBehaviour {
 
 		foreach (GameObject go in GameObject.FindGameObjectsWithTag ("Inimigo")) {
 			if (go.GetComponent<Rigidbody2D> ()) {
-				go.GetComponent<Rigidbody2D> ().velocity = Vector3.zero;
+				go.SendMessage("alterarEstadoObstaculo");
 			}
 		}
 
@@ -279,8 +279,8 @@ public class Principal : MonoBehaviour {
 	void criarObstaculosAltofase1() {	
 
 		// Instanciando Obstaculos alto 1 e 2. Se estiver na fase 1.
-		Instantiate (obstaculo_1).SendMessage("setPosicaoInicial", 5);  
-		Instantiate (obstaculo_1).SendMessage("setPosicaoInicial", 18);
+		//Instantiate (obstaculo_1).SendMessage("setPosicaoInicial", 5);  
+		//Instantiate (obstaculo_1).SendMessage("setPosicaoInicial", 18);
 	}
 
 

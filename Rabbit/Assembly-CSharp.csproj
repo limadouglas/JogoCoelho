@@ -52,6 +52,7 @@
      <Compile Include="Assets\Scripts\Principais\BotaoPulo.cs" />
      <Compile Include="Assets\Scripts\Principais\BotaoTras.cs" />
      <Compile Include="Assets\Scripts\Principais\Fundo.cs" />
+     <Compile Include="Assets\Scripts\Principais\InimigoMosca.cs" />
      <Compile Include="Assets\Scripts\Principais\Player.cs" />
      <Compile Include="Assets\Scripts\Principais\Principal.cs" />
      <Compile Include="Assets\Scripts\Principais\ScriptCamera.cs" />
@@ -62,15 +63,14 @@
      <Compile Include="Assets\Scripts\Principais\vidas\Vida4.cs" />
      <Compile Include="Assets\Scripts\Principais\vidas\Vida5.cs" />
      <Compile Include="Assets\Scripts\fase_1\MataObstaculoChaoFixo.cs" />
-     <Compile Include="Assets\Scripts\fase_1\ObstaculoAlto.cs" />
      <Compile Include="Assets\Scripts\fase_1\ScriptFase1.cs" />
      <Compile Include="Assets\Scripts\fase_2\GerarNovaParticula.cs" />
      <Compile Include="Assets\Scripts\fase_2\ObstaculoSolo.cs" />
      <Compile Include="Assets\Scripts\fase_2\ValoresStaticos.cs" />
      <Compile Include="Assets\Scripts\fase_3\InimigoAlto.cs" />
      <Compile Include="Assets\Scripts\fase_3\InimigoBaixo.cs" />
-     <Compile Include="Assets\Scripts\fase_5\ChaoMover.cs" />
-     <Compile Include="Assets\Scripts\fase_5\InimigoMosca.cs" />
+     <Compile Include="Assets\Scripts\fase_4\ChaoMover.cs" />
+     <Compile Include="Assets\Scripts\fase_5\Mulher.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
