@@ -11,6 +11,7 @@ public class Mulher : MonoBehaviour {
 	public float tempoPensando;
 	public float distacia;
 	public float velocidade;
+	public bool parar;
 
 
 	void Start () {
@@ -18,34 +19,36 @@ public class Mulher : MonoBehaviour {
 		pensando = false;
 		direcao = -1;
 		podeChamar = true;
+		parar = false;
 	}
 	
 	// Update is called once per frame
 	void Update () {	
+		if (!parar) {
+			if (transform.position.x < posicaoInicial.x - distacia) {
+				direcao = 1;
+				transform.localScale = new Vector3 (-1, 1, 1);
 
-		if (transform.position.x < posicaoInicial.x - distacia) {
-			direcao = 1;
-			transform.localScale = new Vector3 (-1, 1, 1);
+				if (!pensando && podeChamar) {
+					podeChamar = false;
+					Invoke ("chamar", distacia / velocidade);
+				}
 
-			if (!pensando && podeChamar) {
-				podeChamar = false;
-				Invoke ("chamar", distacia / velocidade);
+			} else if (transform.position.x > posicaoInicial.x + distacia) {
+				direcao = -1;
+				transform.localScale = new Vector3 (1, 1, 1);
+
+				if (!pensando && podeChamar) {
+					podeChamar = false;
+					Invoke ("chamar", distacia / velocidade);
+				}
 			}
 
-		}else if (transform.position.x > posicaoInicial.x + distacia) {
-			direcao = -1;
-			transform.localScale = new Vector3 (1, 1, 1);
 
-			if (!pensando && podeChamar) {
-				podeChamar = false;
-				Invoke ("chamar", distacia / velocidade);
+			if (!pensando) {
+				GetComponent<Rigidbody2D> ().velocity = new Vector2 (velocidade * direcao, 0);
+				GetComponent<Animator> ().SetBool ("andar", true);
 			}
-		}
-
-
-		if (!pensando) {
-			GetComponent<Rigidbody2D>().velocity =  new Vector2(velocidade * direcao, 0);
-			GetComponent<Animator> ().SetBool ("andar", true);
 		}
 		
 	}
@@ -57,7 +60,7 @@ public class Mulher : MonoBehaviour {
 	IEnumerator pararPensar() {
 		pensando = true;
 		GetComponent<Animator> ().SetBool ("andar", false);
-		GetComponent<Rigidbody2D>().velocity  = new Vector2(0, 0);
+		GetComponent<Rigidbody2D>().velocity  = Vector2.zero;
 		particula.transform.position = new Vector2 (transform.position.x, transform.position.y + 0.8f);
 		StartCoroutine (destruirParticula(Instantiate(particula)));
 		yield return new WaitForSeconds (tempoPensando);
@@ -68,6 +71,13 @@ public class Mulher : MonoBehaviour {
 	IEnumerator destruirParticula(GameObject part) {
 		yield return new WaitForSeconds (tempoPensando);
 		Destroy (part);
+	}
+
+	void pararMulher() {
+		GetComponent<Rigidbody2D>().velocity  = Vector2.zero;
+		transform.localScale = new Vector3 (1, 1, 1);
+		GetComponent<Animator> ().SetBool ("andar", false);
+		parar = true;
 	}
 
 }

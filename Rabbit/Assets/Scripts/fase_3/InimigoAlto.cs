@@ -23,20 +23,21 @@ public class InimigoAlto : MonoBehaviour {
 	void Update () {
 		
 		if (delayAcabou) {
-		
-			if (transform.position.y <= -3.7f) {										// aumenta a velocidade quando sair do teto.
-				particula.transform.position = new Vector2 (transform.position.x, transform.position.y + 1);	// posição da particula baseado na posição deste gameObject.
+			if (!parar) {
+				if (transform.position.y <= -3.7f) {										// aumenta a velocidade quando sair do teto.
+					particula.transform.position = new Vector2 (transform.position.x, transform.position.y + 1);	// posição da particula baseado na posição deste gameObject.
 										
-				StartCoroutine(destruirParticula (Instantiate (particula)));			// instanciando particula, e ja mandando ser destruida.
-				GetComponent<Rigidbody2D> ().velocity = new Vector2 (0, -1);			// diminuindo velociade.
-				transform.position = posicaoInicial;									// reposicionando gameObject.
-			} 
+					StartCoroutine (destruirParticula (Instantiate (particula)));			// instanciando particula, e ja mandando ser destruida.
+					GetComponent<Rigidbody2D> ().velocity = new Vector2 (0, -1);			// diminuindo velociade.
+					transform.position = posicaoInicial;									// reposicionando gameObject.
+				} 
 
 
-			if (transform.position.y < 1.3f && !parar) {										// diminuir velocidade quando estiver antes do teto.
-				GetComponent<Rigidbody2D> ().velocity = new Vector2 (0, -7);		// para dar um efeito legal.
+				if (transform.position.y < 1.3f && !parar) {										// diminuir velocidade quando estiver antes do teto.
+					GetComponent<Rigidbody2D> ().velocity = new Vector2 (0, -7);		// para dar um efeito legal.
+				}
+
 			}
-
 		}
 
 	}
@@ -52,8 +53,9 @@ public class InimigoAlto : MonoBehaviour {
 		GetComponent<Rigidbody2D> ().velocity = new Vector2 (0, -1);
 	}
 
-	public void pararObstaculo() {
+	public void alterarEstadoObstaculo() {
 		parar = true;
+		GetComponent<Rigidbody2D> ().velocity = Vector3.zero;
 	}
 		
 }

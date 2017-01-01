@@ -9905,6 +9905,11 @@ Prefab:
       propertyPath: playerPosicao
       value: 
       objectReference: {fileID: 1056476103}
+    - target: {fileID: 114000014157981690, guid: 627788c5e37a01942997f40e4f081926,
+        type: 2}
+      propertyPath: playerPosicao
+      value: 
+      objectReference: {fileID: 1056476103}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 627788c5e37a01942997f40e4f081926, type: 2}
   m_IsPrefabParent: 0
@@ -26350,7 +26355,7 @@ Prefab:
         type: 2}
       propertyPath: cam
       value: 
-      objectReference: {fileID: 1112969346}
+      objectReference: {fileID: 1605767177}
     - target: {fileID: 212000010546151006, guid: 402d9c8f96ae0314c9bed108ff5a3488,
         type: 2}
       propertyPath: m_SortingOrder
@@ -27428,12 +27433,6 @@ SpriteRenderer:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 1
   m_FlipY: 0
---- !u!114 &716746714 stripped
-MonoBehaviour:
-  m_PrefabParentObject: {fileID: 114000010195999240, guid: 627788c5e37a01942997f40e4f081926,
-    type: 2}
-  m_PrefabInternal: {fileID: 237217181}
-  m_Script: {fileID: 708705254, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
 --- !u!1 &717807639
 GameObject:
   m_ObjectHideFlags: 0
@@ -29163,11 +29162,6 @@ SpriteRenderer:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
---- !u!1 &771699840 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1000013083783430, guid: 627788c5e37a01942997f40e4f081926,
-    type: 2}
-  m_PrefabInternal: {fileID: 237217181}
 --- !u!1 &775263143
 GameObject:
   m_ObjectHideFlags: 0
@@ -34955,6 +34949,12 @@ SpriteRenderer:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 1
   m_FlipY: 0
+--- !u!114 &982560016 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114000011874836350, guid: 627788c5e37a01942997f40e4f081926,
+    type: 2}
+  m_PrefabInternal: {fileID: 237217181}
+  m_Script: {fileID: 708705254, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
 --- !u!1 &983496070
 GameObject:
   m_ObjectHideFlags: 0
@@ -41497,11 +41497,6 @@ SpriteRenderer:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
---- !u!20 &1112969346 stripped
-Camera:
-  m_PrefabParentObject: {fileID: 20000011071025780, guid: 627788c5e37a01942997f40e4f081926,
-    type: 2}
-  m_PrefabInternal: {fileID: 237217181}
 --- !u!1 &1113066714
 GameObject:
   m_ObjectHideFlags: 0
@@ -61071,6 +61066,11 @@ SpriteRenderer:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 1
   m_FlipY: 0
+--- !u!20 &1605767177 stripped
+Camera:
+  m_PrefabParentObject: {fileID: 20000012284793610, guid: 627788c5e37a01942997f40e4f081926,
+    type: 2}
+  m_PrefabInternal: {fileID: 237217181}
 --- !u!1 &1606573381
 GameObject:
   m_ObjectHideFlags: 0
@@ -62996,12 +62996,18 @@ Prefab:
         type: 2}
       propertyPath: msg
       value: 
-      objectReference: {fileID: 771699840}
+      objectReference: {fileID: 1864087452}
     - target: {fileID: 114000013469281672, guid: fdb8dfc122039a04d917106a2b30e2e5,
         type: 2}
       propertyPath: msgIniciarReiniciar
       value: 
-      objectReference: {fileID: 716746714}
+      objectReference: {fileID: 982560016}
+    - target: {fileID: 114000013469281672, guid: fdb8dfc122039a04d917106a2b30e2e5,
+        type: 2}
+      propertyPath: roleta
+      value: 
+      objectReference: {fileID: 1000011007557070, guid: ca0bf50ca8249f54d906bd685a564ce3,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: fdb8dfc122039a04d917106a2b30e2e5, type: 2}
   m_IsPrefabParent: 0
@@ -71950,6 +71956,11 @@ SpriteRenderer:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
+--- !u!1 &1864087452 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1000013358580062, guid: 627788c5e37a01942997f40e4f081926,
+    type: 2}
+  m_PrefabInternal: {fileID: 237217181}
 --- !u!1 &1866082558
 GameObject:
   m_ObjectHideFlags: 0

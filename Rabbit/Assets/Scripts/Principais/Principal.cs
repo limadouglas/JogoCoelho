@@ -43,7 +43,8 @@ public class Principal : MonoBehaviour {
 
 	void Start () {
 
-		PlayerPrefs.SetInt ("vida", 3);
+		msg.transform.position = Vector3.zero;
+		PlayerPrefs.SetInt ("vida", 1);
 		// PlayerPrefs.SetInt ("fase", 3);
 
 		ganhou = false;											// ganhou inicia como false.
@@ -179,13 +180,14 @@ public class Principal : MonoBehaviour {
 			go.GetComponent<Animator> ().enabled = false;
 		}
 
-
+		/*
 		// parando inimigos da fase 3.
 		if(SceneManager.GetActiveScene().name == "Cena_3")
 			foreach (GameObject go in GameObject.FindGameObjectsWithTag ("Inimigo")) {
 				if(go.GetComponent<Rigidbody2D>())
 					go.SendMessage ("pararObstaculo");
 			}
+		*/
 
 		GameObject.Find ("Player").GetComponent<Animator> ().enabled = false;
 		GameObject.Find ("Player").GetComponent<Rigidbody2D> ().velocity = Vector3.zero;
@@ -278,9 +280,6 @@ public class Principal : MonoBehaviour {
 	// metodo so será chamado quando estiver na fase 1.
 	void criarObstaculosAltofase1() {	
 
-		// Instanciando Obstaculos alto 1 e 2. Se estiver na fase 1.
-		//Instantiate (obstaculo_1).SendMessage("setPosicaoInicial", 5);  
-		//Instantiate (obstaculo_1).SendMessage("setPosicaoInicial", 18);
 	}
 
 
@@ -313,6 +312,12 @@ public class Principal : MonoBehaviour {
 		//TODO
 	}
 
+	void finalizarJogo() {
+		controles.SetActive (false);
+		foreach (GameObject go in GameObject.FindGameObjectsWithTag ("Inimigo")) {
+			go.SetActive (false);
+		}
 
+	}
 
 }

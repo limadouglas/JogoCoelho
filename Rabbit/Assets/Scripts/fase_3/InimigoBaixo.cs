@@ -58,7 +58,8 @@ public class InimigoBaixo : MonoBehaviour {
 	}
 
 
-	public void pararObstaculo() {
+	public void alterarEstadoObstaculo() {
 		parar = true;
+		GetComponent<Rigidbody2D> ().velocity = Vector3.zero;
 	}
 }

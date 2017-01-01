@@ -72,7 +72,7 @@ public class Player : MonoBehaviour {
 
 				if (CrossPlatformInputManager.GetAxis ("Horizontal") != 0) 		// verificando se alguma seta foi pressionada.
 					mover ();
-				 else 
+				else
 					anim.SetFloat ("Velocidade", 0);							// desabilitando animação de andar.
 
 
@@ -134,6 +134,7 @@ public class Player : MonoBehaviour {
 				gameEngine.SendMessage ("jogoFim");
 				desabilitarPlayer = true;				// desabilitando o controle do coelho.
 			}
+				
 		}
 
 	}
@@ -151,6 +152,12 @@ public class Player : MonoBehaviour {
 				desabilitarPlayer = true;					// desabilitando o controle do coelho.
 			}
 
+
+			if (coll.gameObject.tag == "Fim") {
+				desabilitarPlayer = true;
+				anim.SetFloat("Velocidade", 0);
+				print ("fim");
+			}
 		}
 
 	}
