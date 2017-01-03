@@ -7,12 +7,9 @@ IDEIAS:
 
 criar efeito de onda.
 
-criar efeito de espirar agua quando o player cair nela.
-
 colocar objetos de fundo em todas as fases para dar um efeito realista.
 
-colocar uma cenoura de ouro em todas as fases, a cenoura irá representar uma vida,o usuario não ganhara vida ao somente concluir a fase.
-
+trocar efeitos sonoros.(cair na agua, cair no fogo, pulo coelho, morte coelho).implementar appodeal
 
 A FAZER:
 

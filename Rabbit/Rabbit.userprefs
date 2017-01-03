@@ -1,6 +1,6 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Principais\Player.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Plugins\Android\AndroidManifest.xml">
     <Files>
       <File FileName="Assets\Main.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\fase_2\ValoresStaticos.cs" Line="1" Column="1" />
@@ -11,21 +11,24 @@
       <File FileName="Assets\Scripts\fase_3\InimigoAlto.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\fase_3\InimigoBaixo.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\Principais\ScriptCamera.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Principais\Player.cs" Line="93" Column="4" />
+      <File FileName="Assets\Scripts\Principais\Player.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\Principais\roleta.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\fase_2\GerarNovaParticula.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\fase_5\Mulher.cs" Line="79" Column="54" />
+      <File FileName="Assets\Scripts\fase_5\Mulher.cs" Line="62" Column="41" />
       <File FileName="Assets\Scripts\fase_1\MataObstaculoChaoFixo.cs" Line="1" Column="1" />
       <File FileName="Assets\RoletaCamera.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\fase_4\ChaoMover.cs" Line="12" Column="2" />
-      <File FileName="Assets\Scripts\fase_5\AbelhaCimaBaixo.cs" Line="18" Column="17" />
-      <File FileName="Assets\Scripts\fase_5\Nuvem.cs" Line="47" Column="1" />
-      <File FileName="Assets\Scripts\fase_5\Raio.cs" Line="21" Column="1" />
-      <File FileName="Assets\ParticulaRaio.cs" Line="8" Column="32" />
-      <File FileName="Assets\Scripts\Principais\InimigoMosca.cs" Line="6" Column="1" />
-      <File FileName="Assets\Scripts\fase_5\Fim.cs" Line="19" Column="95" />
-      <File FileName="Assets\Scripts\Principais\Principal.cs" Line="321" Column="3" />
-      <File FileName="Assets\Scripts\fase_5\CaramujoMovimentacao.cs" Line="20" Column="42" />
+      <File FileName="Assets\Scripts\fase_4\ChaoMover.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\fase_5\AbelhaCimaBaixo.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\fase_5\Nuvem.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\fase_5\Raio.cs" Line="1" Column="1" />
+      <File FileName="Assets\ParticulaRaio.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Principais\InimigoMosca.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\fase_5\Fim.cs" Line="9" Column="18" />
+      <File FileName="Assets\Scripts\Principais\Principal.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\fase_5\CaramujoMovimentacao.cs" Line="1" Column="1" />
+      <File FileName="Assets\Appodeal\AppodealDemo\AppodealDemo.cs" Line="28" Column="22" />
+      <File FileName="Assets\Scripts\Principais\Propaganda.cs" Line="30" Column="44" />
+      <File FileName="Assets\Plugins\Android\AndroidManifest.xml" Line="26" Column="41" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

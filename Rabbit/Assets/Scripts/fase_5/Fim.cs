@@ -16,7 +16,7 @@ public class Fim : MonoBehaviour {
 			//player.GetComponent<Rigidbody2D> ().AddForce (new Vector2(0, 10));
 			player = coll.gameObject;
 			GameObject.Find ("gameEngine").SendMessage ("finalizarJogo");
-			Instantiate (coracao).transform.position = new Vector2(player.transform.position.x+5, -0.5f);
+			Instantiate (coracao).transform.position = new Vector2(player.transform.position.x+5.5f, -0.5f);
 		}
 	}
 		

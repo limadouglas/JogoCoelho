@@ -14,6 +14,7 @@ public class Mulher : MonoBehaviour {
 	public bool parar;
 
 
+
 	void Start () {
 		posicaoInicial = transform.position;
 		pensando = false;
@@ -21,8 +22,9 @@ public class Mulher : MonoBehaviour {
 		podeChamar = true;
 		parar = false;
 	}
-	
-	// Update is called once per frame
+
+
+
 	void Update () {	
 		if (!parar) {
 			if (transform.position.x < posicaoInicial.x - distacia) {
@@ -48,14 +50,25 @@ public class Mulher : MonoBehaviour {
 			if (!pensando) {
 				GetComponent<Rigidbody2D> ().velocity = new Vector2 (velocidade * direcao, 0);
 				GetComponent<Animator> ().SetBool ("andar", true);
-			}
+			} 
+
+		}else if (transform.position.x > (posicaoInicial.x - distacia)) {
+				direcao = -1;
+				transform.localScale = new Vector3 (1, 1, 1);
+				GetComponent<Rigidbody2D> ().velocity = new Vector2 (velocidade * direcao, 0);
+				GetComponent<Animator> ().SetBool ("andar", true);
+		} else {
+				GetComponent<Rigidbody2D> ().velocity = new Vector2 (0, 0);
+				GetComponent<Animator> ().SetBool ("andar", false);
 		}
 		
 	}
 
+
 	void chamar() {
 		StartCoroutine (pararPensar ());
 	}
+
 
 	IEnumerator pararPensar() {
 		pensando = true;
@@ -68,15 +81,16 @@ public class Mulher : MonoBehaviour {
 		pensando = false;
 	}
 
+
+
 	IEnumerator destruirParticula(GameObject part) {
 		yield return new WaitForSeconds (tempoPensando);
 		Destroy (part);
 	}
 
+
+
 	void pararMulher() {
-		GetComponent<Rigidbody2D>().velocity  = Vector2.zero;
-		transform.localScale = new Vector3 (1, 1, 1);
-		GetComponent<Animator> ().SetBool ("andar", false);
 		parar = true;
 	}
 
