@@ -1,10 +1,21 @@
 fileFormatVersion: 2
 guid: dd74912b47c78254fb60241d79f1680b
-timeCreated: 1482081054
+timeCreated: 1483575329
 licenseType: Free
 MonoImporter:
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - msg: {instanceID: 0}
+  - msgIniciarReiniciar: {instanceID: 0}
+  - obstaculo_1: {instanceID: 0}
+  - morte: {instanceID: 0}
+  - pulo: {instanceID: 0}
+  - vitoria: {instanceID: 0}
+  - spriteSomAtivado: {instanceID: 0}
+  - spriteSomDesativado: {instanceID: 0}
+  - roleta: {instanceID: 0}
+  - primeiraVez: {fileID: 1000012224142548, guid: 0ad64f0ad424dab43a3902577a80bfa5,
+      type: 2}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

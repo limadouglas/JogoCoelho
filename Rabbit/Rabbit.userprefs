@@ -1,8 +1,8 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Plugins\Android\AndroidManifest.xml">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Main.cs">
     <Files>
-      <File FileName="Assets\Main.cs" Line="1" Column="1" />
+      <File FileName="Assets\Main.cs" Line="9" Column="55" />
       <File FileName="Assets\Scripts\fase_2\ValoresStaticos.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\Principais\BotaoPlayPause.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\Principais\BotaoMusica.cs" Line="1" Column="1" />
@@ -14,7 +14,7 @@
       <File FileName="Assets\Scripts\Principais\Player.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\Principais\roleta.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\fase_2\GerarNovaParticula.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\fase_5\Mulher.cs" Line="62" Column="41" />
+      <File FileName="Assets\Scripts\fase_5\Mulher.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\fase_1\MataObstaculoChaoFixo.cs" Line="1" Column="1" />
       <File FileName="Assets\RoletaCamera.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\fase_4\ChaoMover.cs" Line="1" Column="1" />
@@ -23,13 +23,32 @@
       <File FileName="Assets\Scripts\fase_5\Raio.cs" Line="1" Column="1" />
       <File FileName="Assets\ParticulaRaio.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\Principais\InimigoMosca.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\fase_5\Fim.cs" Line="9" Column="18" />
-      <File FileName="Assets\Scripts\Principais\Principal.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\fase_5\Fim.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Principais\Principal.cs" Line="106" Column="35" />
       <File FileName="Assets\Scripts\fase_5\CaramujoMovimentacao.cs" Line="1" Column="1" />
-      <File FileName="Assets\Appodeal\AppodealDemo\AppodealDemo.cs" Line="28" Column="22" />
-      <File FileName="Assets\Scripts\Principais\Propaganda.cs" Line="30" Column="44" />
-      <File FileName="Assets\Plugins\Android\AndroidManifest.xml" Line="26" Column="41" />
     </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="Rabbit" expanded="True">
+            <Node name="Assembly-CSharp" expanded="True">
+              <Node name="Scripts" expanded="True">
+                <Node name="Principais" expanded="True" />
+              </Node>
+              <Node name="Main.cs" selected="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+      <Pad Id="MonoDevelop.Debugger.WatchPad">
+        <State />
+      </Pad>
+      <Pad Id="MonoDevelop.NUnit.TestPad">
+        <State name="__root__">
+          <Node name="Rabbit" expanded="True" selected="True" />
+        </State>
+      </Pad>
+    </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />

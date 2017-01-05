@@ -41,8 +41,11 @@ public class Principal : MonoBehaviour {
 
 	public bool uma = true;
 
-	void Start () {
+	public GameObject primeiraVez;
+	public bool primeiraVezVerificador;
 
+	void Start () {
+		primeiraVezVerificador = false;
 		msg.transform.position = Vector3.zero;
 		PlayerPrefs.SetInt ("vida", 1);
 		// PlayerPrefs.SetInt ("fase", 3);
@@ -68,9 +71,17 @@ public class Principal : MonoBehaviour {
 		}
 
 		if (PlayerPrefs.GetInt ("msgIniciar") == 1 ) {
-			msg.SetActive (true);	
-			PlayerPrefs.SetInt ("msgIniciar", 0);
-			estaNoInicio = true;
+			if (PlayerPrefs.GetInt ("PrimeiraVez") != 1) {
+				primeiraVez.SetActive (true);
+				estaNoInicio = true;
+				primeiraVezVerificador = true;
+				msg.SetActive (false);
+				PlayerPrefs.SetInt ("PrimeiraVez", 1);
+			} else {
+				msg.SetActive (true);	
+				PlayerPrefs.SetInt ("msgIniciar", 0);
+				estaNoInicio = true;
+			}
 
 			if (SceneManager.GetActiveScene ().name == "Cena_2") {
 				player.transform.position = new Vector2 (player.transform.position.x, -0.5f);
@@ -90,6 +101,9 @@ public class Principal : MonoBehaviour {
 			jogoInicio ();
 			estaNoInicio = false;
 			Time.timeScale = 1;	
+
+			if (primeiraVezVerificador)
+				primeiraVez.SetActive (false);
 		}
 		
 		if (fim && Input.GetButtonDown ("Fire1")) {								// verificnado se fim = true e teve um toque na tela.

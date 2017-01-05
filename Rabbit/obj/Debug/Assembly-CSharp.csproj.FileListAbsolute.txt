@@ -46,6 +46,3 @@ C:\Users\dougl\Google Drive\PROJETOS\Unity\JogoCoelho\Rabbit\Temp\bin\Debug\Unit
 C:\Users\dougl\Google Drive\PROJETOS\Unity\JogoCoelho\Rabbit\Temp\bin\Debug\UnityEngine.Networking.xml
 C:\Users\dougl\Google Drive\PROJETOS\Unity\JogoCoelho\Rabbit\Temp\bin\Debug\UnityEngine.Analytics.xml
 C:\Users\dougl\Google Drive\PROJETOS\Unity\JogoCoelho\Rabbit\obj\Debug\Assembly-CSharp.pdb
-C:\Users\dougl\Google Drive\PROJETOS\Unity\JogoCoelho\Rabbit\Temp\bin\Debug\Ionic.Zip.Unity.dll
-C:\Users\dougl\Google Drive\PROJETOS\Unity\JogoCoelho\Rabbit\Temp\bin\Debug\Ionic.Zip.Unity.pdb
-C:\Users\dougl\Google Drive\PROJETOS\Unity\JogoCoelho\Rabbit\Temp\bin\Debug\Ionic.Zip.Unity.xml

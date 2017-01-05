@@ -13,7 +13,12 @@ trocar efeitos sonoros.(cair na agua, cair no fogo, pulo coelho, morte coelho).i
 
 A FAZER:
 
-Fases: serão cinco fases!
+logo do jogo na tela inicial ao carregar o app.
+
+tela de transição entre as fases.
+
+tela final do jogo.
+
 
 
  
