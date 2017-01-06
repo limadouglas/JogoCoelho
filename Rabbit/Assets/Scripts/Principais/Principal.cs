@@ -47,7 +47,7 @@ public class Principal : MonoBehaviour {
 	void Start () {
 		primeiraVezVerificador = false;
 		msg.transform.position = Vector3.zero;
-		PlayerPrefs.SetInt ("vida", 1);
+		// PlayerPrefs.SetInt ("vida", 1);
 		// PlayerPrefs.SetInt ("fase", 3);
 
 		ganhou = false;											// ganhou inicia como false.
@@ -182,6 +182,8 @@ public class Principal : MonoBehaviour {
 
 	void jogoFim() {
 
+		player.GetComponent<Rigidbody2D> ().isKinematic = true; // desabilitando isKinematic do player.
+
 		// parando objetos e animações.
 
 		foreach (GameObject go in GameObject.FindGameObjectsWithTag ("Inimigo")) {
@@ -217,13 +219,13 @@ public class Principal : MonoBehaviour {
 
 		PlayerPrefs.SetInt ("vida", PlayerPrefs.GetInt ("vida") - 1);		// tirando uma vida do player.
 
-		if(PlayerPrefs.GetInt("vida") == 0)									// verificando se as vidas acabaram.
-			Invoke("chamarRoleta", 1);										// chamando roleta.
+		if (PlayerPrefs.GetInt ("vida") == 0)									// verificando se as vidas acabaram.
+			Invoke ("chamarRoleta", 1);										// chamando roleta.
 		else
 			msgPerdeu ("Toque Para Reiniciar");								// chamando metodo com msg de fim.
 
 	}
-
+		
 
 	void msgPerdeu(string textoMsg) {
 		fim = true;
@@ -240,7 +242,7 @@ public class Principal : MonoBehaviour {
 
 	void jogadorGanhou() {
 		controles.SetActive (false);										// escondendo controles.
-		GetComponent<AudioSource> ().clip = vitoria;						// som de morte. 
+		GetComponent<AudioSource> ().clip = vitoria;						// som de vitoria. 
 		GetComponent<AudioSource> ().loop = false;							// desativando loop.
 		GetComponent<AudioSource> ().Play();								// dando play.	
 		// audio de vitoria.
