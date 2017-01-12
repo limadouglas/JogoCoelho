@@ -58,14 +58,14 @@ public class roleta : MonoBehaviour {
 						pararMinimo = 210;
 						pararMaximo = 260;
 						Invoke ("perdeuVida", 1);
-
+						GameObject.Find ("gameEngine").SendMessage ("roletaSomDerrota");
 						print ("perdeu a vida " + numero.ToString ());
 					} else if (numero <= 4) {
 						pararMinimo = 70;
 						pararMaximo = 140;
 
 						Invoke ("ganhouVida", 1);
-
+						GameObject.Find ("gameEngine").SendMessage ("roletaSomVida");
 						print ("ganhou a vida " + numero.ToString ());
 					} else {
 						pararMinimo = 340;
@@ -82,10 +82,12 @@ public class roleta : MonoBehaviour {
 			if (seta.GetComponent<RectTransform> ().eulerAngles.z > pararMinimo && seta.GetComponent<RectTransform> ().eulerAngles.z < pararMaximo) {
 				velRotacaoSeta = 0;
 				if (numero >= 5) {
-					if (estaConectado)
+					if (estaConectado) {
 						Invoke ("ganhouPropaganda", 1);
-					else {
+						GameObject.Find ("gameEngine").SendMessage ("roletaSemSom");
+					} else {
 						GameObject.Find ("gameEngine").SendMessage ("msgPerdeu", "Sem Conexão");
+						GameObject.Find ("gameEngine").SendMessage ("roletaSomDerrota");
 						recusarPropaganda ();
 					}
 				}                             
@@ -98,6 +100,7 @@ public class roleta : MonoBehaviour {
 	void mostrarPropaganda() {
 		PlayerPrefs.SetInt ("vida", 1);
 		GameObject.Find ("gameEngine").SendMessage ("msgPerdeu", "Ganhou uma vida");
+		GameObject.Find ("gameEngine").SendMessage ("roletaSomVida");
 		Destroy (gameObject);
 	}
 
@@ -110,28 +113,28 @@ public class roleta : MonoBehaviour {
 	private void diminuirVelSeta(){
 		if (velRotacaoSeta > 10)
 			velRotacaoSeta -= 10;
-		else if(velRotacaoSeta > 4) {
+		else if (velRotacaoSeta > 4) {
 			velRotacaoSeta -= 2f;
-		}
-		else 
+		} else 
 			pararSeta = true;
+
 	}
 
 
-	private void perdeuVida() {
+	public void perdeuVida() {
 		Destroy (gameObject);
 		GameObject.Find ("gameEngine").SendMessage ("msgPerdeu", "Fim de Jogo");
 	}
 
 
-	private void ganhouVida() {
+	public void ganhouVida() {
 		Destroy (gameObject);
 		PlayerPrefs.SetInt ("vida", 1);
 		GameObject.Find ("gameEngine").SendMessage ("msgPerdeu", "Ganhou uma Vida");
 	}
 
 
-	private void ganhouPropaganda() {
+	public void ganhouPropaganda() {
 		painelPropaganda.SetActive (true);
 	}
 
@@ -153,5 +156,7 @@ public class roleta : MonoBehaviour {
 
 	private void iniciarRoleta(){
 		iniciar = true;
+		GameObject.Find ("gameEngine").SendMessage ("roletaSomRodar");
+
 	}
 }

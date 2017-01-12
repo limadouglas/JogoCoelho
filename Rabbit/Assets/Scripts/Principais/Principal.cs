@@ -26,7 +26,9 @@ public class Principal : MonoBehaviour {
 	public AudioClip morte;
 	public AudioClip pulo;
 	public AudioClip vitoria;
-
+	public AudioClip roletaSom;
+	public AudioClip roletaVida;
+	public AudioClip roletaDerrota;
 
 	private Button botaoMusica;			// ativa ou desativa a musica de fundo.
 	public Sprite spriteSomAtivado;		// icone de som ativado.
@@ -237,6 +239,25 @@ public class Principal : MonoBehaviour {
 
 	void chamarRoleta () {
 		roleta = Instantiate (roleta);
+	}
+
+	void roletaSemSom() {
+		GetComponent<AudioSource> ().clip = null;
+		GetComponent<AudioSource> ().Play();								// dando play.	
+	}
+
+	void roletaSomRodar(){
+		GetComponent<AudioSource> ().clip = roletaSom;
+		GetComponent<AudioSource> ().Play();								// dando play.	
+	}
+
+	void roletaSomVida() {
+		GetComponent<AudioSource> ().clip = roletaVida;
+		GetComponent<AudioSource> ().Play();								// dando play.
+	}
+	void roletaSomDerrota() {
+		GetComponent<AudioSource> ().clip = roletaDerrota;
+		GetComponent<AudioSource> ().Play();								// dando play.
 	}
 
 

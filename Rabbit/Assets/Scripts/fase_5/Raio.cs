@@ -20,6 +20,7 @@ public class Raio : MonoBehaviour {
 	}
 
 	public void alterarEstadoObstaculo() {
+		GetComponent<Rigidbody2D> ().velocity = Vector3.zero;
 		GetComponent<Rigidbody2D> ().isKinematic = true;
 		parar = true;
 
