@@ -143,6 +143,7 @@ MonoBehaviour:
   roletaSom: {fileID: 8300000, guid: cb6157c6835ae0546b26f79ba44ef788, type: 3}
   roletaVida: {fileID: 8300000, guid: 22a7271995ae7a840ae2953e4505a867, type: 3}
   roletaDerrota: {fileID: 8300000, guid: 8c37248431a6cf9459a3df168a67fcba, type: 3}
+  encontroFim: {fileID: 8300000, guid: fcd5492beb8d4a44b8c7e9f9fbc750b3, type: 3}
   spriteSomAtivado: {fileID: 21300000, guid: 2624fd7ae3e434b4e97e4d5cf3d4e219, type: 3}
   spriteSomDesativado: {fileID: 21300000, guid: 1dcbf76a1fca6a443a3ebbe63fc2a068,
     type: 3}

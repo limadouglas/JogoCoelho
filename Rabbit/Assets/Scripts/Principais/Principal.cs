@@ -29,6 +29,8 @@ public class Principal : MonoBehaviour {
 	public AudioClip roletaSom;
 	public AudioClip roletaVida;
 	public AudioClip roletaDerrota;
+	public AudioClip encontroFim;
+
 
 	private Button botaoMusica;			// ativa ou desativa a musica de fundo.
 	public Sprite spriteSomAtivado;		// icone de som ativado.
@@ -261,6 +263,7 @@ public class Principal : MonoBehaviour {
 	}
 
 
+
 	void jogadorGanhou() {
 		controles.SetActive (false);										// escondendo controles.
 		GetComponent<AudioSource> ().clip = vitoria;						// som de vitoria. 
@@ -351,6 +354,8 @@ public class Principal : MonoBehaviour {
 
 	void finalizarJogo() {
 		controles.SetActive (false);
+		GetComponent<AudioSource> ().clip = encontroFim;
+		GetComponent<AudioSource> ().Play();								// dando play.
 		foreach (GameObject go in GameObject.FindGameObjectsWithTag ("Inimigo")) {
 			go.SetActive (false);
 		}

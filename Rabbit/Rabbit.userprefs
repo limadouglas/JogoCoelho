@@ -1,8 +1,8 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\fase_5\Raio.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\fase_5\Fim.cs">
     <Files>
-      <File FileName="Assets\Main.cs" Line="1" Column="1" />
+      <File FileName="Assets\Main.cs" Line="20" Column="4" />
       <File FileName="Assets\Scripts\fase_2\ValoresStaticos.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\Principais\BotaoPlayPause.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\Principais\BotaoMusica.cs" Line="1" Column="1" />
@@ -12,7 +12,6 @@
       <File FileName="Assets\Scripts\fase_3\InimigoBaixo.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\Principais\ScriptCamera.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\Principais\Player.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Principais\roleta.cs" Line="87" Column="64" />
       <File FileName="Assets\Scripts\fase_2\GerarNovaParticula.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\fase_5\Mulher.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\fase_1\MataObstaculoChaoFixo.cs" Line="1" Column="1" />
@@ -20,11 +19,11 @@
       <File FileName="Assets\Scripts\fase_4\ChaoMover.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\fase_5\AbelhaCimaBaixo.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\fase_5\Nuvem.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\fase_5\Raio.cs" Line="23" Column="56" />
+      <File FileName="Assets\Scripts\fase_5\Raio.cs" Line="1" Column="1" />
       <File FileName="Assets\ParticulaRaio.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\Principais\InimigoMosca.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\fase_5\Fim.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Principais\Principal.cs" Line="244" Column="8" />
+      <File FileName="Assets\Scripts\fase_5\Fim.cs" Line="11" Column="26" />
+      <File FileName="Assets\Scripts\Principais\Principal.cs" Line="86" Column="5" />
       <File FileName="Assets\Scripts\fase_5\CaramujoMovimentacao.cs" Line="1" Column="1" />
     </Files>
     <Pads>
@@ -34,16 +33,13 @@
             <Node name="Assembly-CSharp" expanded="True">
               <Node name="Scripts" expanded="True">
                 <Node name="fase_5" expanded="True">
-                  <Node name="Raio.cs" selected="True" />
+                  <Node name="Fim.cs" selected="True" />
                 </Node>
                 <Node name="Principais" expanded="True" />
               </Node>
             </Node>
           </Node>
         </State>
-      </Pad>
-      <Pad Id="MonoDevelop.Debugger.WatchPad">
-        <State />
       </Pad>
       <Pad Id="MonoDevelop.NUnit.TestPad">
         <State name="__root__">
