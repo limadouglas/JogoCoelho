@@ -73,3 +73,6 @@ C:\Users\dougl\OneDrive\Documentos\GitHub\JogoCoelho\Rabbit\Temp\bin\Debug\Unity
 C:\Users\dougl\OneDrive\Documentos\GitHub\JogoCoelho\Rabbit\obj\Debug\Assembly-CSharp-firstpass.csprojResolveAssemblyReference.cache
 C:\Users\dougl\OneDrive\Documentos\GitHub\JogoCoelho\Rabbit\obj\Debug\Assembly-CSharp-firstpass.dll
 C:\Users\dougl\OneDrive\Documentos\GitHub\JogoCoelho\Rabbit\obj\Debug\Assembly-CSharp-firstpass.pdb
+C:\Users\dougl\OneDrive\Documentos\GitHub\JogoCoelho\Rabbit\Temp\bin\Debug\Ionic.Zip.Unity.dll
+C:\Users\dougl\OneDrive\Documentos\GitHub\JogoCoelho\Rabbit\Temp\bin\Debug\Ionic.Zip.Unity.pdb
+C:\Users\dougl\OneDrive\Documentos\GitHub\JogoCoelho\Rabbit\Temp\bin\Debug\Ionic.Zip.Unity.xml

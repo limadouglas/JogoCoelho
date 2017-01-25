@@ -46,7 +46,53 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Appodeal\Editor\AppodealAndroidManifestMod.cs" />
+     <Compile Include="Assets\Appodeal\Editor\AppodealSettings.cs" />
+     <Compile Include="Assets\Appodeal\Editor\xcode\AssetCatalog.cs" />
+     <Compile Include="Assets\Appodeal\Editor\xcode\JsonParser.cs" />
+     <Compile Include="Assets\Appodeal\Editor\xcode\PBX\Elements.cs" />
+     <Compile Include="Assets\Appodeal\Editor\xcode\PBX\Lexer.cs" />
+     <Compile Include="Assets\Appodeal\Editor\xcode\PBX\Objects.cs" />
+     <Compile Include="Assets\Appodeal\Editor\xcode\PBX\Parser.cs" />
+     <Compile Include="Assets\Appodeal\Editor\xcode\PBX\Sections.cs" />
+     <Compile Include="Assets\Appodeal\Editor\xcode\PBX\Serializer.cs" />
+     <Compile Include="Assets\Appodeal\Editor\xcode\PBX\Utils.cs" />
+     <Compile Include="Assets\Appodeal\Editor\xcode\PBXProject.cs" />
+     <Compile Include="Assets\Appodeal\Editor\xcode\PBXProjectData.cs" />
+     <Compile Include="Assets\Appodeal\Editor\xcode\PlistParser.cs" />
+     <Compile Include="Assets\Editor\AppodealPostProcess.cs" />
      <Compile Include="Assets\Editor\CrossPlatformInput\CrossPlatformInputInitialize.cs" />
+     <Compile Include="Assets\PlayServicesResolver\Editor\AppodealDependencies.cs" />
+     <Compile Include="Assets\PlayServicesResolver\Editor\DefaultResolver.cs" />
+     <Compile Include="Assets\PlayServicesResolver\Editor\IResolver.cs" />
+     <Compile Include="Assets\PlayServicesResolver\Editor\PlayServicesResolver.cs" />
+     <Compile Include="Assets\PlayServicesResolver\Editor\ResolverVer1_1.cs" />
+     <Compile Include="Assets\PlayServicesResolver\Editor\ResolverVer1_2.cs" />
+     <Compile Include="Assets\PlayServicesResolver\Editor\SettingsDialog.cs" />
+     <None Include="Assets\Plugins\Android\cheetah-mobile\res\layout\cm_activity_full_screen_video.xml" />
+     <None Include="Assets\Plugins\Android\cheetah-mobile\res\layout\origin_picks_banner_mid.xml" />
+     <None Include="Assets\Plugins\Android\cheetah-mobile\res\drawable\btnstyle.xml" />
+     <None Include="Assets\Plugins\Android\cheetah-mobile\res\drawable\progressbar.xml" />
+     <None Include="Assets\Plugins\Android\cheetah-mobile\proguard-project.txt" />
+     <None Include="Assets\Plugins\Android\cheetah-mobile\res\layout\activity_picks_browser.xml" />
+     <None Include="Assets\Plugins\Android\cheetah-mobile\res\values-zh-rTW\values-zh-rTW.xml" />
+     <None Include="Assets\Plugins\Android\cheetah-mobile\res\drawable\vast_progress_style.xml" />
+     <None Include="Assets\Plugins\Android\cheetah-mobile\res\values\values.xml" />
+     <None Include="Assets\Plugins\Android\cheetah-mobile\res\layout\cm_activity_picks_interstitial.xml" />
+     <None Include="Assets\Plugins\Android\cheetah-mobile\res\anim\loading_animation.xml" />
+     <None Include="Assets\Plugins\Android\AndroidManifest.xml" />
+     <None Include="Assets\Plugins\Android\cheetah-mobile\res\layout\origin_picks_banner_smail.xml" />
+     <None Include="Assets\Plugins\Android\cheetah-mobile\res\layout\cm_splash_time.xml" />
+     <None Include="Assets\Plugins\Android\cheetah-mobile\AndroidManifest.xml" />
+     <None Include="Assets\Plugins\Android\cheetah-mobile\build.xml" />
+     <None Include="Assets\Plugins\Android\cheetah-mobile\res\drawable\btn_ad_bg.xml" />
+     <None Include="Assets\Plugins\Android\cheetah-mobile\res\layout\activity_picks_loading.xml" />
+     <None Include="Assets\Plugins\Android\cheetah-mobile\res\layout\cm_vast_small_view.xml" />
+     <None Include="Assets\Plugins\Android\cheetah-mobile\res\layout\cm_vast_ad_layout.xml" />
+     <None Include="Assets\Plugins\Android\cheetah-mobile\res\drawable\interstital_ad_body_bg.xml" />
+     <None Include="Assets\Plugins\Android\cheetah-mobile\res\layout\gps_dialog.xml" />
+     <None Include="Assets\Plugins\Android\cheetah-mobile\res\values-zh-rCN\values-zh-rCN.xml" />
+     <None Include="Assets\Plugins\Android\cheetah-mobile\res\anim\advertisement.xml" />
  <Reference Include="UnityEditor.Advertisements">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/Advertisements/Editor/UnityEditor.Advertisements.dll</HintPath>
  </Reference>
@@ -103,6 +149,12 @@
  </Reference>
  <Reference Include="UnityEditor.WindowsStandalone.Extensions">
  <HintPath>C:/Program Files/Unity/Editor/Data/PlaybackEngines/windowsstandalonesupport/UnityEditor.WindowsStandalone.Extensions.dll</HintPath>
+ </Reference>
+ <Reference Include="Ionic.Zip.Unity">
+ <HintPath>C:/Users/dougl/OneDrive/Documentos/GitHub/JogoCoelho/Rabbit/Assets/Plugins/Ionic.Zip.Unity.dll</HintPath>
+ </Reference>
+ <Reference Include="JarResolverLib">
+ <HintPath>C:/Users/dougl/OneDrive/Documentos/GitHub/JogoCoelho/Rabbit/Assets/PlayServicesResolver/Editor/JarResolverLib.dll</HintPath>
  </Reference>
   </ItemGroup>
   <ItemGroup>

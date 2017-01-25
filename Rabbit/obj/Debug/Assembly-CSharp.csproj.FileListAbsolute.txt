@@ -76,3 +76,6 @@ C:\Users\dougl\OneDrive\Documentos\GitHub\JogoCoelho\Rabbit\Temp\bin\Debug\Unity
 C:\Users\dougl\OneDrive\Documentos\GitHub\JogoCoelho\Rabbit\Temp\bin\Debug\UnityEngine.Analytics.xml
 C:\Users\dougl\OneDrive\Documentos\GitHub\JogoCoelho\Rabbit\Temp\bin\Debug\UnityEngine.HoloLens.xml
 C:\Users\dougl\OneDrive\Documentos\GitHub\JogoCoelho\Rabbit\Temp\bin\Debug\UnityEngine.VR.xml
+C:\Users\dougl\OneDrive\Documentos\GitHub\JogoCoelho\Rabbit\Temp\bin\Debug\Ionic.Zip.Unity.dll
+C:\Users\dougl\OneDrive\Documentos\GitHub\JogoCoelho\Rabbit\Temp\bin\Debug\Ionic.Zip.Unity.pdb
+C:\Users\dougl\OneDrive\Documentos\GitHub\JogoCoelho\Rabbit\Temp\bin\Debug\Ionic.Zip.Unity.xml

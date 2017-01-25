@@ -57,6 +57,30 @@
      <Compile Include="Assets\Standard Assets\CrossPlatformInput\Scripts\TiltInput.cs" />
      <Compile Include="Assets\Standard Assets\CrossPlatformInput\Scripts\TouchPad.cs" />
      <Compile Include="Assets\Standard Assets\CrossPlatformInput\Scripts\VirtualInput.cs" />
+     <None Include="Assets\Plugins\Android\cheetah-mobile\res\layout\cm_activity_full_screen_video.xml" />
+     <None Include="Assets\Plugins\Android\cheetah-mobile\res\layout\origin_picks_banner_mid.xml" />
+     <None Include="Assets\Plugins\Android\cheetah-mobile\res\drawable\btnstyle.xml" />
+     <None Include="Assets\Plugins\Android\cheetah-mobile\res\drawable\progressbar.xml" />
+     <None Include="Assets\Plugins\Android\cheetah-mobile\proguard-project.txt" />
+     <None Include="Assets\Plugins\Android\cheetah-mobile\res\layout\activity_picks_browser.xml" />
+     <None Include="Assets\Plugins\Android\cheetah-mobile\res\values-zh-rTW\values-zh-rTW.xml" />
+     <None Include="Assets\Plugins\Android\cheetah-mobile\res\drawable\vast_progress_style.xml" />
+     <None Include="Assets\Plugins\Android\cheetah-mobile\res\values\values.xml" />
+     <None Include="Assets\Plugins\Android\cheetah-mobile\res\layout\cm_activity_picks_interstitial.xml" />
+     <None Include="Assets\Plugins\Android\cheetah-mobile\res\anim\loading_animation.xml" />
+     <None Include="Assets\Plugins\Android\AndroidManifest.xml" />
+     <None Include="Assets\Plugins\Android\cheetah-mobile\res\layout\origin_picks_banner_smail.xml" />
+     <None Include="Assets\Plugins\Android\cheetah-mobile\res\layout\cm_splash_time.xml" />
+     <None Include="Assets\Plugins\Android\cheetah-mobile\AndroidManifest.xml" />
+     <None Include="Assets\Plugins\Android\cheetah-mobile\build.xml" />
+     <None Include="Assets\Plugins\Android\cheetah-mobile\res\drawable\btn_ad_bg.xml" />
+     <None Include="Assets\Plugins\Android\cheetah-mobile\res\layout\activity_picks_loading.xml" />
+     <None Include="Assets\Plugins\Android\cheetah-mobile\res\layout\cm_vast_small_view.xml" />
+     <None Include="Assets\Plugins\Android\cheetah-mobile\res\layout\cm_vast_ad_layout.xml" />
+     <None Include="Assets\Plugins\Android\cheetah-mobile\res\drawable\interstital_ad_body_bg.xml" />
+     <None Include="Assets\Plugins\Android\cheetah-mobile\res\layout\gps_dialog.xml" />
+     <None Include="Assets\Plugins\Android\cheetah-mobile\res\values-zh-rCN\values-zh-rCN.xml" />
+     <None Include="Assets\Plugins\Android\cheetah-mobile\res\anim\advertisement.xml" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
@@ -74,6 +98,9 @@
  </Reference>
  <Reference Include="UnityEngine.VR">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnityVR/RuntimeEditor/UnityEngine.VR.dll</HintPath>
+ </Reference>
+ <Reference Include="Ionic.Zip.Unity">
+ <HintPath>C:/Users/dougl/OneDrive/Documentos/GitHub/JogoCoelho/Rabbit/Assets/Plugins/Ionic.Zip.Unity.dll</HintPath>
  </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

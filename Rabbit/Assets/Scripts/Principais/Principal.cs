@@ -4,7 +4,11 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using UnityStandardAssets.CrossPlatformInput;
 
-public class Principal : MonoBehaviour {
+using AppodealAds.Unity.Api;
+using AppodealAds.Unity.Common;
+using AppodealAds.Unity.Android;
+
+public class Principal : MonoBehaviour, IInterstitialAdListener {
 	
 											// mensagens.
 	public GameObject msg;					// gameObject para esconder ou exibir mensagem.
@@ -47,6 +51,8 @@ public class Principal : MonoBehaviour {
 
 	public GameObject primeiraVez;
 	public bool primeiraVezVerificador;
+
+	string appKey = "efb5c422363727a3a58ef4d0f8a48a2fc5ee91cb4c234f93";
 
 	void Start () {
 		primeiraVezVerificador = false;
@@ -95,9 +101,14 @@ public class Principal : MonoBehaviour {
 			jogoInicio ();
 
 		somAtivadoDesativado ();								// verificando se o jogo ira iniciar com som.
-	}	
-	
 
+		if(PlayerPrefs.GetInt("vida") <= 1) {
+			Appodeal.disableLocationPermissionCheck();
+			Appodeal.initialize(appKey, Appodeal.INTERSTITIAL);
+			Appodeal.setInterstitialCallbacks(this);
+			Appodeal.cache (Appodeal.INTERSTITIAL);
+		}
+	}	
 
 	void Update () {
 
@@ -223,8 +234,8 @@ public class Principal : MonoBehaviour {
 
 		PlayerPrefs.SetInt ("vida", PlayerPrefs.GetInt ("vida") - 1);		// tirando uma vida do player.
 
-		if (PlayerPrefs.GetInt ("vida") == 0)									// verificando se as vidas acabaram.
-			Invoke ("chamarRoleta", 1);										// chamando roleta.
+		if (PlayerPrefs.GetInt ("vida") == 0)								// verificando se as vidas acabaram.
+			Invoke ("chamarPropaganda", 1);									// chamando roleta.
 		else
 			msgPerdeu ("Toque Para Reiniciar");								// chamando metodo com msg de fim.
 
@@ -239,9 +250,21 @@ public class Principal : MonoBehaviour {
 	}
 
 
-	void chamarRoleta () {
-		roleta = Instantiate (roleta);
+	void chamarPropaganda () {
+		print ("propaganda metodo chamado");
+		if(Appodeal.isLoaded(Appodeal.INTERSTITIAL))
+			Appodeal.show (Appodeal.INTERSTITIAL);
+		else
+			roleta = Instantiate (roleta);
 	}
+
+
+	public void onInterstitialLoaded() { print("Interstitial loaded"); }
+	public void onInterstitialFailedToLoad() { print("Interstitial failed"); }
+	public void onInterstitialShown() { print("Interstitial opened"); }
+	public void onInterstitialClosed() { print("Interstitial closed"); roleta = Instantiate (roleta); }
+	public void onInterstitialClicked() { print("Interstitial clicked"); roleta = Instantiate (roleta); }
+
 
 	void roletaSemSom() {
 		GetComponent<AudioSource> ().clip = null;
