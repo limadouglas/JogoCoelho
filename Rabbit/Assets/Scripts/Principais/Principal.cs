@@ -94,19 +94,21 @@ public class Principal : MonoBehaviour, IInterstitialAdListener {
 			}
 
 			if (SceneManager.GetActiveScene ().name == "Cena_2") {
-				player.transform.position = new Vector2 (player.transform.position.x, -0.5f);
-				GameObject.Find ("Solo").transform.position = new Vector2 (player.transform.position.x + 0.3f, GameObject.Find ("Solo").transform.position.y);
+				player.transform.position = new Vector2 (player.transform.position.x, 0.3f);
+				GameObject.Find ("Solo").transform.position = new Vector2 (player.transform.position.x, GameObject.Find ("Solo").transform.position.y);	
 			}
+
 		} else
 			jogoInicio ();
 
 		somAtivadoDesativado ();								// verificando se o jogo ira iniciar com som.
 
-		if(PlayerPrefs.GetInt("vida") <= 1) {
+		// propaganda é carregado apenas quando for a ultima vida e estiver conectado na internet.
+		if(PlayerPrefs.GetInt("vida") <= 1 && Application.internetReachability != NetworkReachability.NotReachable) {
 			Appodeal.disableLocationPermissionCheck();
+			Appodeal.cache (Appodeal.INTERSTITIAL);
 			Appodeal.initialize(appKey, Appodeal.INTERSTITIAL);
 			Appodeal.setInterstitialCallbacks(this);
-			Appodeal.cache (Appodeal.INTERSTITIAL);
 		}
 	}	
 
@@ -233,7 +235,7 @@ public class Principal : MonoBehaviour, IInterstitialAdListener {
 		GetComponent<AudioSource> ().Play();								// dando play.
 
 		PlayerPrefs.SetInt ("vida", PlayerPrefs.GetInt ("vida") - 1);		// tirando uma vida do player.
-
+			
 		if (PlayerPrefs.GetInt ("vida") == 0)								// verificando se as vidas acabaram.
 			Invoke ("chamarPropaganda", 1);									// chamando roleta.
 		else
@@ -252,7 +254,9 @@ public class Principal : MonoBehaviour, IInterstitialAdListener {
 
 	void chamarPropaganda () {
 		print ("propaganda metodo chamado");
-		if(Appodeal.isLoaded(Appodeal.INTERSTITIAL))
+		if(Application.internetReachability == NetworkReachability.NotReachable)
+			msgPerdeu ("Sem Internet!");	
+		else if(Appodeal.isLoaded(Appodeal.INTERSTITIAL))
 			Appodeal.show (Appodeal.INTERSTITIAL);
 		else
 			roleta = Instantiate (roleta);

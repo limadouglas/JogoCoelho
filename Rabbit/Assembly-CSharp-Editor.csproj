@@ -141,6 +141,12 @@
  <Reference Include="UnityEngine.VR">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnityVR/RuntimeEditor/UnityEngine.VR.dll</HintPath>
  </Reference>
+ <Reference Include="JarResolverLib">
+ <HintPath>C:/Users/dougl/OneDrive/Documentos/GitHub/JogoCoelho/Rabbit/Assets/PlayServicesResolver/Editor/JarResolverLib.dll</HintPath>
+ </Reference>
+ <Reference Include="Ionic.Zip.Unity">
+ <HintPath>C:/Users/dougl/OneDrive/Documentos/GitHub/JogoCoelho/Rabbit/Assets/Plugins/Ionic.Zip.Unity.dll</HintPath>
+ </Reference>
  <Reference Include="UnityEditor.Graphs">
  <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEditor.Graphs.dll</HintPath>
  </Reference>
@@ -149,12 +155,6 @@
  </Reference>
  <Reference Include="UnityEditor.WindowsStandalone.Extensions">
  <HintPath>C:/Program Files/Unity/Editor/Data/PlaybackEngines/windowsstandalonesupport/UnityEditor.WindowsStandalone.Extensions.dll</HintPath>
- </Reference>
- <Reference Include="Ionic.Zip.Unity">
- <HintPath>C:/Users/dougl/OneDrive/Documentos/GitHub/JogoCoelho/Rabbit/Assets/Plugins/Ionic.Zip.Unity.dll</HintPath>
- </Reference>
- <Reference Include="JarResolverLib">
- <HintPath>C:/Users/dougl/OneDrive/Documentos/GitHub/JogoCoelho/Rabbit/Assets/PlayServicesResolver/Editor/JarResolverLib.dll</HintPath>
  </Reference>
   </ItemGroup>
   <ItemGroup>

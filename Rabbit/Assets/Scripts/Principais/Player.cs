@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 using System.Collections; 
 using UnityStandardAssets.CrossPlatformInput;
 
@@ -42,10 +43,10 @@ public class Player : MonoBehaviour {
 
 
 		if (PlayerPrefs.GetFloat("checkpoint") <= 19 ) {
-			transform.position = new Vector2 (-((Screen.width / 100)/4), 0);				// definindo posição da player.
+			transform.position = new Vector2 (-((Screen.width / 100) / 4), 0);				// definindo posição da player.
 			posicaoInicial = transform.position.x;											// salvando posicao inicial para que o personagem não saia da tela pela esquerda.
-			PlayerPrefs.SetFloat("posicaoinicial",-((Screen.width / 100)/4));				// gravando posicao inicial;
-			PlayerPrefs.SetFloat("checkpoint", -((Screen.width / 100)/4));
+			PlayerPrefs.SetFloat("posicaoinicial",-((Screen.width / 100) / 4));				// gravando posicao inicial;
+			PlayerPrefs.SetFloat("checkpoint", -((Screen.width / 100) / 4));
 		} else
 			transform.position = new Vector2 (PlayerPrefs.GetFloat("checkpoint"), 0);
 	}
@@ -63,11 +64,13 @@ public class Player : MonoBehaviour {
 			anim.SetBool ("Chao", estaNoChao);
 
 			if (estaNoChao) {													// verificando se o objeto esta no chao;
-
-				if (CrossPlatformInputManager.GetAxis ("Horizontal") == 0 && !CrossPlatformInputManager.GetButton ("Jump"))
-					GetComponent<Rigidbody2D> ().gravityScale = 50;
-				else
-					GetComponent<Rigidbody2D> ().gravityScale = gravidadeEscala;
+				
+				if (SceneManager.GetActiveScene().name == "Cena_4") {			// aumetar gravidade é necessario apenas na fase 4.
+					if (CrossPlatformInputManager.GetAxis ("Horizontal") == 0 && !CrossPlatformInputManager.GetButton ("Jump"))
+						GetComponent<Rigidbody2D> ().gravityScale = 50;
+					else
+						GetComponent<Rigidbody2D> ().gravityScale = gravidadeEscala;
+				}
 					
 
 				if (CrossPlatformInputManager.GetAxis ("Horizontal") != 0) 		// verificando se alguma seta foi pressionada.
