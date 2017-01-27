@@ -6,20 +6,18 @@ public class Main : MonoBehaviour {
 
 	void Awake() {
 
-		PlayerPrefs.DeleteAll ();		// limpar preferencias.
+		//PlayerPrefs.DeleteAll ();		// limpar preferencias.
 
 		if (PlayerPrefs.GetInt ("som") == 0) {		// 0 = não definido ainda, o padrão é iniciar com som.
 			PlayerPrefs.SetInt ("som", 1);			// 1 = com som; 2 = sem som.
 		}
-
-		PlayerPrefs.SetFloat("checkpoint", 147.8f);
-
+			
 		if (PlayerPrefs.GetInt ("vida") <= 0) {
 			PlayerPrefs.SetInt ("vida", 3);
 			PlayerPrefs.SetInt ("fase", 1);
 		}
 
-		PlayerPrefs.SetInt ("fase", 4);
+		//PlayerPrefs.SetInt ("fase", 4);
 		PlayerPrefs.SetInt ("msgIniciar", 1);
 
 		switch (PlayerPrefs.GetInt ("fase")) {
