@@ -65,13 +65,13 @@ public class Player : MonoBehaviour {
 
 			if (estaNoChao) {													// verificando se o objeto esta no chao;
 				
-				if (SceneManager.GetActiveScene().name == "Cena_4") {			// aumetar gravidade é necessario apenas na fase 4.
+				if (SceneManager.GetActiveScene().name == "Cena_4") {			// aumentar gravidade é necessario apenas na fase 4.
 					if (CrossPlatformInputManager.GetAxis ("Horizontal") == 0 && !CrossPlatformInputManager.GetButton ("Jump"))
-						GetComponent<Rigidbody2D> ().gravityScale = 50;
+						GetComponent<Rigidbody2D> ().gravityScale = 45;
 					else
 						GetComponent<Rigidbody2D> ().gravityScale = gravidadeEscala;
 				}
-					
+
 
 				if (CrossPlatformInputManager.GetAxis ("Horizontal") != 0) 		// verificando se alguma seta foi pressionada.
 					mover ();
@@ -118,8 +118,8 @@ public class Player : MonoBehaviour {
 		// zerando velocidade para o pulo sempre ser da mesma velocidade e altura.
 		GetComponent<Rigidbody2D> ().velocity = Vector3.zero;
 		
-		GetComponent<Rigidbody2D> ().AddForce (new Vector2 ((saltoDistancia * CrossPlatformInputManager.GetAxis("Horizontal")) * Time.deltaTime, saltoAltura * Time.deltaTime));	
-		//GetComponent<Rigidbody2D> ().AddForce (new Vector2 ((saltoDistancia * 1) * Time.deltaTime, saltoAltura * Time.deltaTime));	
+		//GetComponent<Rigidbody2D> ().AddForce (new Vector2 ((saltoDistancia * CrossPlatformInputManager.GetAxis("Horizontal")) * Time.deltaTime, saltoAltura * Time.deltaTime));	
+		GetComponent<Rigidbody2D> ().AddForce (new Vector2 ((saltoDistancia * 1) * Time.deltaTime, saltoAltura * Time.deltaTime));	
 
 		// ativando animação de pulo.
 		anim.SetBool ("Chao", false);
