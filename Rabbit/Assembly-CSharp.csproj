@@ -76,6 +76,8 @@
      <Compile Include="Assets\Scripts\Principais\BotaoTras.cs" />
      <Compile Include="Assets\Scripts\Principais\Fundo.cs" />
      <Compile Include="Assets\Scripts\Principais\InimigoMosca.cs" />
+     <Compile Include="Assets\Scripts\Principais\Loading\SceneController.cs" />
+     <Compile Include="Assets\Scripts\Principais\Loading\Singleton.cs" />
      <Compile Include="Assets\Scripts\Principais\Player.cs" />
      <Compile Include="Assets\Scripts\Principais\Principal.cs" />
      <Compile Include="Assets\Scripts\Principais\ScriptCamera.cs" />

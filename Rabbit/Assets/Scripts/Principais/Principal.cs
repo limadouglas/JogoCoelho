@@ -135,19 +135,24 @@ public class Principal : MonoBehaviour, IInterstitialAdListener {
 				switch (SceneManager.GetActiveScene ().name) {
 
 				case "Cena_1":
-					SceneManager.LoadScene ("Cena_2");
+					SceneController.getInstance().LoadScene("Cena_2");
+					//SceneManager.LoadScene ("Cena_2");
 					break;
 				case "Cena_2":
-					SceneManager.LoadScene ("Cena_3");
+					SceneController.getInstance().LoadScene("Cena_3");
+					//SceneManager.LoadScene ("Cena_3");
 					break;
 				case "Cena_3":
-					SceneManager.LoadScene ("Cena_4");
+					SceneController.getInstance().LoadScene("Cena_4");
+					//SceneManager.LoadScene ("Cena_4");
 					break;
 				case "Cena_4":
-					SceneManager.LoadScene ("Cena_5");
+					SceneController.getInstance().LoadScene("Cena_5");
+					//SceneManager.LoadScene ("Cena_5");
 					break;
 				default		 :
-					SceneManager.LoadScene ("Cena_FIM");
+					SceneController.getInstance().LoadScene("Cena_FIM");
+					//SceneManager.LoadScene ("Cena_FIM");
 					break;
 				}
 				
@@ -297,7 +302,7 @@ public class Principal : MonoBehaviour, IInterstitialAdListener {
 		GetComponent<AudioSource> ().loop = false;							// desativando loop.
 		GetComponent<AudioSource> ().Play();								// dando play.	
 		// audio de vitoria.
-		Invoke("desativarSom", 3f);
+		//Invoke("desativarSom", 3f);
 
 		ganhou = true;
 		fim = true;
