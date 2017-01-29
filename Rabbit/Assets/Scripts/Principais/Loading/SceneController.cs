@@ -25,7 +25,7 @@ public class SceneController : Singleton<SceneController>
 			startLoading = false;
 			isLoading = false;
 			targetSceneName = "";
-			minLoadingTime = 3;
+			minLoadingTime = 2;
 		}
 	}
 	void Update()

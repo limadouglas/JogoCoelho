@@ -202,36 +202,36 @@ public class Principal : MonoBehaviour, IInterstitialAdListener {
 
 
 
-	void jogoFim() {
-
+	public void pararPlayerInimigo(){							// parando movimentação e animações relacionadas ao player e aos inimigos.
+		
 		player.GetComponent<Rigidbody2D> ().isKinematic = true; // desabilitando isKinematic do player.
 
 		// parando objetos e animações.
 
-		foreach (GameObject go in GameObject.FindGameObjectsWithTag ("Inimigo")) {
-			if (go.GetComponent<Rigidbody2D> ()) {
+		foreach (GameObject go in GameObject.FindGameObjectsWithTag ("Inimigo")) 
+			if (go.GetComponent<Rigidbody2D> ()) 
 				go.SendMessage("alterarEstadoObstaculo");
-			}
-		}
+			
+		
 
-		foreach (GameObject go in GameObject.FindGameObjectsWithTag ("Animacao")) {
+		foreach (GameObject go in GameObject.FindGameObjectsWithTag ("Animacao")) 
 			go.GetComponent<Animator> ().enabled = false;
-		}
+		
 
-		/*
-		// parando inimigos da fase 3.
-		if(SceneManager.GetActiveScene().name == "Cena_3")
-			foreach (GameObject go in GameObject.FindGameObjectsWithTag ("Inimigo")) {
-				if(go.GetComponent<Rigidbody2D>())
-					go.SendMessage ("pararObstaculo");
-			}
-		*/
+		if(SceneManager.GetActiveScene().name == "Cena_2")
+			foreach (GameObject go in GameObject.FindGameObjectsWithTag("Solo")) 
+				go.SendMessage ("parar");
+			
 
 		GameObject.Find ("Player").GetComponent<Animator> ().enabled = false;
 		GameObject.Find ("Player").GetComponent<Rigidbody2D> ().velocity = Vector3.zero;
 		GameObject.Find ("Player").transform.Translate (Vector3.zero);
 		GameObject.Find ("Player").GetComponent<Rigidbody2D> ().AddForce(Vector3.zero);
+	}
 
+	void jogoFim() {
+
+		pararPlayerInimigo ();
 
 		controles.SetActive (false);										// escondendo controles.
 																			
@@ -256,6 +256,29 @@ public class Principal : MonoBehaviour, IInterstitialAdListener {
 		Time.timeScale = 0;
 	}
 
+
+
+	void jogadorGanhou() {
+
+		pararPlayerInimigo ();
+		controles.SetActive (false);										// escondendo controles.
+		GetComponent<AudioSource> ().clip = vitoria;						// som de vitoria. 
+		GetComponent<AudioSource> ().loop = false;							// desativando loop.
+		GetComponent<AudioSource> ().Play();								// dando play.	
+
+
+
+		ganhou = true;
+		fim = true;
+		Invoke("msgGanhou", 0.3f);															// invocando metodo mensagem ganhou.
+	}
+
+
+	void msgGanhou() {
+		msgIniciarReiniciar.text = "Ir para fase " + (PlayerPrefs.GetInt("fase") + 1).ToString();	// alterando msg.
+		msg.SetActive (true);											// exibindo msg.
+		Time.timeScale = 0;												// parando tempo.			
+	}
 
 	void chamarPropaganda () {
 		print ("propaganda metodo chamado");
@@ -311,29 +334,6 @@ public class Principal : MonoBehaviour, IInterstitialAdListener {
 		GetComponent<AudioSource> ().clip = sorteioDerrota;
 		GetComponent<AudioSource> ().Play();								// dando play.
 	}
-
-
-
-	void jogadorGanhou() {
-		controles.SetActive (false);										// escondendo controles.
-		GetComponent<AudioSource> ().clip = vitoria;						// som de vitoria. 
-		GetComponent<AudioSource> ().loop = false;							// desativando loop.
-		GetComponent<AudioSource> ().Play();								// dando play.	
-		// audio de vitoria.
-		//Invoke("desativarSom", 3f);
-
-		ganhou = true;
-		fim = true;
-		Invoke("msgGanhou", 0.3f);															// invocando metodo mensagem ganhou.
-	}
-		
-
-	void msgGanhou() {
-		msgIniciarReiniciar.text = "Ir para fase " + (PlayerPrefs.GetInt("fase") + 1).ToString();	// alterando msg.
-		msg.SetActive (true);											// exibindo msg.
-		Time.timeScale = 0;												// parando tempo.			
-	}
-
 
 
 	// PARTE RELACIONADA AO SOM.

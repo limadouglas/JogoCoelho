@@ -8,10 +8,12 @@ public class ObstaculoSolo : MonoBehaviour {
 	private bool comPlayer;
 	public Transform player;
 	private bool colidiu;
+	private bool isParar;
 
 
 	void Start () {
 
+		isParar = false;
 		velocidade = 40f;
 		comPlayer = false;
 		colidiu = false;
@@ -23,16 +25,18 @@ public class ObstaculoSolo : MonoBehaviour {
 
 
 	void FixedUpdate() {
-		if (!colidiu) {
+		if (!isParar) {
+			if (!colidiu) {
 			
-			if (comPlayer)
-				transform.position = new Vector2 (player.position.x, transform.position.y);
-			else
-				GetComponent<Rigidbody2D> ().velocity = new Vector2 (-(velocidade) * Time.deltaTime, 0);
+				if (comPlayer)
+					transform.position = new Vector2 (player.position.x, transform.position.y);
+				else
+					GetComponent<Rigidbody2D> ().velocity = new Vector2 (-(velocidade) * Time.deltaTime, 0);
 		
 
-			if (transform.position.x <= cam.transform.position.x - ((Screen.width / 100) * 1.2f) && cam.transform.position.x < 170)
-				transform.position = new Vector2 (transform.position.x + 205, transform.position.y);
+				if (transform.position.x <= cam.transform.position.x - ((Screen.width / 100) * 1.2f) && cam.transform.position.x < 170)
+					transform.position = new Vector2 (transform.position.x + 205, transform.position.y);
+			}
 		}
 	}
 
@@ -76,6 +80,12 @@ public class ObstaculoSolo : MonoBehaviour {
 
 	void destruir() {
 		Destroy (gameObject);
+	}
+
+	void parar() {
+		GetComponent<Animator> ().enabled = false;
+		GetComponent<Rigidbody2D> ().velocity = Vector2.zero;
+		isParar = true;
 	}
 
 }
