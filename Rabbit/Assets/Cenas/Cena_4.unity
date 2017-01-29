@@ -2112,6 +2112,11 @@ Prefab:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 223000010298358844, guid: 0ad64f0ad424dab43a3902577a80bfa5,
+        type: 2}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 198771316}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0ad64f0ad424dab43a3902577a80bfa5, type: 2}
   m_IsPrefabParent: 0
@@ -10241,7 +10246,17 @@ Prefab:
       objectReference: {fileID: 1314385471}
     - target: {fileID: 1000013358580062, guid: 627788c5e37a01942997f40e4f081926, type: 2}
       propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000012071034604, guid: 627788c5e37a01942997f40e4f081926,
+        type: 2}
+      propertyPath: m_UiScaleMode
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011874836350, guid: 627788c5e37a01942997f40e4f081926,
+        type: 2}
+      propertyPath: m_FontData.m_FontSize
+      value: 65
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 627788c5e37a01942997f40e4f081926, type: 2}

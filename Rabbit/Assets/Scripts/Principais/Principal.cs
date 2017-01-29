@@ -30,9 +30,9 @@ public class Principal : MonoBehaviour, IInterstitialAdListener {
 	public AudioClip morte;
 	public AudioClip pulo;
 	public AudioClip vitoria;
-	public AudioClip roletaSom;
-	public AudioClip roletaVida;
-	public AudioClip roletaDerrota;
+	public AudioClip sorteioSom;
+	public AudioClip sorteioVida;
+	public AudioClip sorteioDerrota;
 	public AudioClip encontroFim;
 
 
@@ -45,7 +45,7 @@ public class Principal : MonoBehaviour, IInterstitialAdListener {
 
 	private bool estaNoInicio;
 
-	public GameObject roleta;
+	public GameObject sorteio;
 
 	public bool uma = true;
 
@@ -264,33 +264,34 @@ public class Principal : MonoBehaviour, IInterstitialAdListener {
 		else if(Appodeal.isLoaded(Appodeal.INTERSTITIAL))
 			Appodeal.show (Appodeal.INTERSTITIAL);
 		else
-			roleta = Instantiate (roleta);
+			sorteio = Instantiate (sorteio);
 	}
 
 
 	public void onInterstitialLoaded() { print("Interstitial loaded"); }
 	public void onInterstitialFailedToLoad() { print("Interstitial failed"); }
 	public void onInterstitialShown() { print("Interstitial opened"); }
-	public void onInterstitialClosed() { print("Interstitial closed"); roleta = Instantiate (roleta); }
-	public void onInterstitialClicked() { print("Interstitial clicked"); roleta = Instantiate (roleta); }
+	public void onInterstitialClosed() { print("Interstitial closed"); sorteio = Instantiate (sorteio); }
+	public void onInterstitialClicked() { print("Interstitial clicked"); sorteio = Instantiate (sorteio); }
 
 
-	void roletaSemSom() {
-		GetComponent<AudioSource> ().clip = null;
+
+	void sorteioSomBase(){
+		GetComponent<AudioSource> ().clip = sorteioSom;
 		GetComponent<AudioSource> ().Play();								// dando play.	
 	}
 
-	void roletaSomRodar(){
-		GetComponent<AudioSource> ().clip = roletaSom;
-		GetComponent<AudioSource> ().Play();								// dando play.	
-	}
 
-	void roletaSomVida() {
-		GetComponent<AudioSource> ().clip = roletaVida;
+
+	void sorteioSomVida() {
+		GetComponent<AudioSource> ().clip = sorteioVida;
 		GetComponent<AudioSource> ().Play();								// dando play.
 	}
-	void roletaSomDerrota() {
-		GetComponent<AudioSource> ().clip = roletaDerrota;
+
+
+
+	void sorteioSomDerrota() {
+		GetComponent<AudioSource> ().clip = sorteioDerrota;
 		GetComponent<AudioSource> ().Play();								// dando play.
 	}
 

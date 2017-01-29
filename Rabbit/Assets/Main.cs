@@ -20,8 +20,9 @@ public class Main : MonoBehaviour {
 			PlayerPrefs.SetInt ("fase", 1);
 		}
 
-		PlayerPrefs.SetInt ("fase", 1);
+		//PlayerPrefs.SetInt ("fase", 1);
 		PlayerPrefs.SetInt ("msgIniciar", 1);
+
 
 		switch (PlayerPrefs.GetInt ("fase")) {
 
@@ -43,6 +44,7 @@ public class Main : MonoBehaviour {
 			default:SceneController.getInstance().LoadScene("Cena_1");
 					break;
 		}
+
 
 
 	}

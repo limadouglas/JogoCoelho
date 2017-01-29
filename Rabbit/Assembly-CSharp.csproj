@@ -68,7 +68,6 @@
      <Compile Include="Assets\Appodeal\Platforms\iOS\AppodealObjCBridge.cs" />
      <Compile Include="Assets\Main.cs" />
      <Compile Include="Assets\ParticulaRaio.cs" />
-     <Compile Include="Assets\RoletaCamera.cs" />
      <Compile Include="Assets\Scripts\Principais\BotaoFrente.cs" />
      <Compile Include="Assets\Scripts\Principais\BotaoMusica.cs" />
      <Compile Include="Assets\Scripts\Principais\BotaoPlayPause.cs" />
@@ -81,7 +80,7 @@
      <Compile Include="Assets\Scripts\Principais\Player.cs" />
      <Compile Include="Assets\Scripts\Principais\Principal.cs" />
      <Compile Include="Assets\Scripts\Principais\ScriptCamera.cs" />
-     <Compile Include="Assets\Scripts\Principais\roleta.cs" />
+     <Compile Include="Assets\Scripts\Principais\Sorteio\Sorteio.cs" />
      <Compile Include="Assets\Scripts\Principais\vidas\Vida1.cs" />
      <Compile Include="Assets\Scripts\Principais\vidas\Vida2.cs" />
      <Compile Include="Assets\Scripts\Principais\vidas\Vida3.cs" />
