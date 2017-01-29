@@ -3,6 +3,7 @@ using System.Collections;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using System;
+
 //Herda a classe Singleton para indicar que deve existir somente um desse objeto em todo o jogo.
 public class SceneController : Singleton<SceneController>
 {

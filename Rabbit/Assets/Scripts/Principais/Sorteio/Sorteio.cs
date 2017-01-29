@@ -26,10 +26,6 @@ public class Sorteio : MonoBehaviour {
 	}
 
 
-
-	void Update () {
-
-	}
 		
 	public void perdeuVida() {
 		Destroy (gameObject);
@@ -103,6 +99,8 @@ public class Sorteio : MonoBehaviour {
 			perdeuVida ();
 
 		}
+
+		GameObject.Find ("gameEngine").SendMessage ("fecharBanner");
 	}
 
 }

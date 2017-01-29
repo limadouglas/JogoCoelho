@@ -52,7 +52,7 @@ public class Principal : MonoBehaviour, IInterstitialAdListener {
 	public GameObject primeiraVez;
 	public bool primeiraVezVerificador;
 
-	string appKey = "efb5c422363727a3a58ef4d0f8a48a2fc5ee91cb4c234f93";
+	string appKey = "5e0dfa990a6bf419cf9e6a75786af326a0e6f5325eba8ed2";
 
 	void Start () {
 		primeiraVezVerificador = false;
@@ -106,8 +106,8 @@ public class Principal : MonoBehaviour, IInterstitialAdListener {
 		// propaganda é carregado apenas quando for a ultima vida e estiver conectado na internet.
 		if(PlayerPrefs.GetInt("vida") <= 1 && Application.internetReachability != NetworkReachability.NotReachable) {
 			Appodeal.disableLocationPermissionCheck();
-			Appodeal.cache (Appodeal.INTERSTITIAL);
-			Appodeal.initialize(appKey, Appodeal.INTERSTITIAL);
+			Appodeal.cache (Appodeal.INTERSTITIAL | Appodeal.BANNER);
+			Appodeal.initialize(appKey, Appodeal.INTERSTITIAL | Appodeal.BANNER);
 			Appodeal.setInterstitialCallbacks(this);
 		}
 	}	
@@ -271,10 +271,27 @@ public class Principal : MonoBehaviour, IInterstitialAdListener {
 	public void onInterstitialLoaded() { print("Interstitial loaded"); }
 	public void onInterstitialFailedToLoad() { print("Interstitial failed"); }
 	public void onInterstitialShown() { print("Interstitial opened"); }
-	public void onInterstitialClosed() { print("Interstitial closed"); sorteio = Instantiate (sorteio); }
-	public void onInterstitialClicked() { print("Interstitial clicked"); sorteio = Instantiate (sorteio); }
+	public void onInterstitialClosed() { 
+		print("Interstitial closed"); 
+		sorteio = Instantiate (sorteio); 
+		if(Appodeal.isLoaded(Appodeal.BANNER))
+			Appodeal.show (Appodeal.BANNER_BOTTOM); 
+	}
+	public void onInterstitialClicked() { 
+		print("Interstitial clicked"); 
+		sorteio = Instantiate (sorteio); 
+		if(Appodeal.isLoaded(Appodeal.BANNER))
+			Appodeal.show (Appodeal.BANNER_BOTTOM); 
+	}
 
 
+
+
+		
+	void fecharBanner() {
+		
+		Appodeal.hide(Appodeal.BANNER);
+	}
 
 	void sorteioSomBase(){
 		GetComponent<AudioSource> ().clip = sorteioSom;

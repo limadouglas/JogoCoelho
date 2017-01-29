@@ -1,9 +1,9 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Principais\Sorteio\Sorteio.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Principais\Principal.cs">
     <Files>
       <File FileName="Assets\Scripts\Principais\Loading\Singleton.cs" Line="1" Column="1" />
-      <File FileName="Assets\Main.cs" Line="5" Column="36" />
+      <File FileName="Assets\Main.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\Principais\BotaoPlayPause.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\Principais\BotaoMusica.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\fase_2\ObstaculoSolo.cs" Line="1" Column="1" />
@@ -21,36 +21,12 @@
       <File FileName="Assets\ParticulaRaio.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\Principais\InimigoMosca.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\fase_5\Fim.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Principais\Principal.cs" Line="293" Column="24" />
+      <File FileName="Assets\Scripts\Principais\Principal.cs" Line="51" Column="2" />
       <File FileName="Assets\Scripts\fase_5\CaramujoMovimentacao.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\Principais\Loading\SceneController.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Principais\Sorteio\Sorteio.cs" Line="69" Column="18" />
+      <File FileName="Assets\Scripts\Principais\Sorteio\Sorteio.cs" Line="1" Column="1" />
+      <File FileName="Assets\Plugins\Android\AndroidManifest.xml" Line="1" Column="1" />
     </Files>
-    <Pads>
-      <Pad Id="ProjectPad">
-        <State name="__root__">
-          <Node name="Rabbit" expanded="True">
-            <Node name="Assembly-CSharp" expanded="True">
-              <Node name="Scripts" expanded="True">
-                <Node name="Principais" expanded="True">
-                  <Node name="Sorteio" expanded="True">
-                    <Node name="Sorteio.cs" selected="True" />
-                  </Node>
-                </Node>
-              </Node>
-            </Node>
-          </Node>
-        </State>
-      </Pad>
-      <Pad Id="MonoDevelop.Debugger.WatchPad">
-        <State />
-      </Pad>
-      <Pad Id="MonoDevelop.NUnit.TestPad">
-        <State name="__root__">
-          <Node name="Rabbit" expanded="True" selected="True" />
-        </State>
-      </Pad>
-    </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
