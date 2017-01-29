@@ -22,7 +22,7 @@ public class Main : MonoBehaviour {
 			PlayerPrefs.SetInt ("fase", 1);
 		}
 
-		PlayerPrefs.SetInt ("fase", 2);
+		//PlayerPrefs.SetInt ("fase", 2);
 		PlayerPrefs.SetInt ("msgIniciar", 1);
 
 

@@ -8,7 +8,7 @@ using AppodealAds.Unity.Api;
 using AppodealAds.Unity.Common;
 using AppodealAds.Unity.Android;
 
-public class Principal : MonoBehaviour, IInterstitialAdListener {
+public class Principal : MonoBehaviour, IInterstitialAdListener { //, IBannerAdListener
 	
 											// mensagens.
 	public GameObject msg;					// gameObject para esconder ou exibir mensagem.
@@ -106,8 +106,8 @@ public class Principal : MonoBehaviour, IInterstitialAdListener {
 		// propaganda é carregado apenas quando for a ultima vida e estiver conectado na internet.
 		if(PlayerPrefs.GetInt("vida") <= 1 && Application.internetReachability != NetworkReachability.NotReachable) {
 			Appodeal.disableLocationPermissionCheck();
-			Appodeal.cache (Appodeal.INTERSTITIAL | Appodeal.BANNER);
-			Appodeal.initialize(appKey, Appodeal.INTERSTITIAL | Appodeal.BANNER);
+			Appodeal.cache (Appodeal.INTERSTITIAL ); 			//| Appodeal.BANNER
+			Appodeal.initialize(appKey, Appodeal.INTERSTITIAL); //  | Appodeal.BANNER
 			Appodeal.setInterstitialCallbacks(this);
 		}
 	}	
@@ -282,39 +282,47 @@ public class Principal : MonoBehaviour, IInterstitialAdListener {
 
 	void chamarPropaganda () {
 		print ("propaganda metodo chamado");
-		if(Application.internetReachability == NetworkReachability.NotReachable)
-			msgPerdeu ("Sem Internet!");	
-		else if(Appodeal.isLoaded(Appodeal.INTERSTITIAL))
+		if (Application.internetReachability == NetworkReachability.NotReachable)
+			msgPerdeu ("Sem Internet!");
+		else if (Appodeal.isLoaded (Appodeal.INTERSTITIAL)) 
 			Appodeal.show (Appodeal.INTERSTITIAL);
 		else
 			sorteio = Instantiate (sorteio);
 	}
 
-
+	#region Interstitial callback handlers
 	public void onInterstitialLoaded() { print("Interstitial loaded"); }
 	public void onInterstitialFailedToLoad() { print("Interstitial failed"); }
 	public void onInterstitialShown() { print("Interstitial opened"); }
 	public void onInterstitialClosed() { 
 		print("Interstitial closed"); 
-		sorteio = Instantiate (sorteio); 
-		if(Appodeal.isLoaded(Appodeal.BANNER))
-			Appodeal.show (Appodeal.BANNER_BOTTOM); 
+		sorteio = Instantiate (sorteio);
 	}
 	public void onInterstitialClicked() { 
 		print("Interstitial clicked"); 
-		sorteio = Instantiate (sorteio); 
+		sorteio = Instantiate (sorteio);
+	}
+	#endregion
+
+	/*
+	#region Banner callback handlers
+	public void onBannerLoaded() { print("banner loaded"); }
+	public void onBannerFailedToLoad() { print("banner failed"); }
+	public void onBannerShown() { print("banner opened"); }
+	public void onBannerClicked() { print("banner clicked"); }
+	#endregion
+
+	void mostrarBanner() {
 		if(Appodeal.isLoaded(Appodeal.BANNER))
 			Appodeal.show (Appodeal.BANNER_BOTTOM); 
 	}
-
-
-
-
 		
-	void fecharBanner() {
-		
-		Appodeal.hide(Appodeal.BANNER);
+	void fecharBanner() {		
+		if(Appodeal.isLoaded(Appodeal.BANNER))
+			Appodeal.hide(Appodeal.BANNER);
 	}
+	*/
+
 
 	void sorteioSomBase(){
 		GetComponent<AudioSource> ().clip = sorteioSom;

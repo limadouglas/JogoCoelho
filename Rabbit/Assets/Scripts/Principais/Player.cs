@@ -118,8 +118,8 @@ public class Player : MonoBehaviour {
 		// zerando velocidade para o pulo sempre ser da mesma velocidade e altura.
 		GetComponent<Rigidbody2D> ().velocity = Vector3.zero;
 		
-		//GetComponent<Rigidbody2D> ().AddForce (new Vector2 ((saltoDistancia * CrossPlatformInputManager.GetAxis("Horizontal")) * Time.deltaTime, saltoAltura * Time.deltaTime));	
-		GetComponent<Rigidbody2D> ().AddForce (new Vector2 ((saltoDistancia * 1) * Time.deltaTime, saltoAltura * Time.deltaTime));	
+		GetComponent<Rigidbody2D> ().AddForce (new Vector2 ((saltoDistancia * CrossPlatformInputManager.GetAxis("Horizontal")) * Time.deltaTime, saltoAltura * Time.deltaTime));	
+		//GetComponent<Rigidbody2D> ().AddForce (new Vector2 ((saltoDistancia * 1) * Time.deltaTime, saltoAltura * Time.deltaTime));	
 
 		// ativando animação de pulo.
 		anim.SetBool ("Chao", false);

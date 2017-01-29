@@ -1,16 +1,16 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Principais\Loading\SceneController.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Principais\Principal.cs">
     <Files>
       <File FileName="Assets\Scripts\Principais\Loading\Singleton.cs" Line="1" Column="1" />
-      <File FileName="Assets\Main.cs" Line="25" Column="32" />
+      <File FileName="Assets\Main.cs" Line="25" Column="5" />
       <File FileName="Assets\Scripts\Principais\BotaoPlayPause.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\Principais\BotaoMusica.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\fase_2\ObstaculoSolo.cs" Line="86" Column="45" />
+      <File FileName="Assets\Scripts\fase_2\ObstaculoSolo.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\Principais\Fundo.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\fase_3\InimigoAlto.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\Principais\ScriptCamera.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Principais\Player.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Principais\Player.cs" Line="103" Column="33" />
       <File FileName="Assets\Scripts\fase_2\GerarNovaParticula.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\fase_5\Mulher.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\fase_1\MataObstaculoChaoFixo.cs" Line="1" Column="1" />
@@ -21,11 +21,10 @@
       <File FileName="Assets\ParticulaRaio.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\Principais\InimigoMosca.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\fase_5\Fim.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Principais\Principal.cs" Line="211" Column="76" />
+      <File FileName="Assets\Scripts\Principais\Principal.cs" Line="110" Column="56" />
       <File FileName="Assets\Scripts\fase_5\CaramujoMovimentacao.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Principais\Loading\SceneController.cs" Line="28" Column="22" />
-      <File FileName="Assets\Scripts\Principais\Sorteio\Sorteio.cs" Line="1" Column="1" />
-      <File FileName="Assets\Plugins\Android\AndroidManifest.xml" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Principais\Loading\SceneController.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Principais\Sorteio\Sorteio.cs" Line="105" Column="6" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -35,10 +34,15 @@
               <Node name="Scripts" expanded="True">
                 <Node name="fase_2" expanded="True" />
                 <Node name="Principais" expanded="True">
-                  <Node name="Loading" expanded="True">
-                    <Node name="SceneController.cs" selected="True" />
-                  </Node>
+                  <Node name="Loading" expanded="True" />
+                  <Node name="Sorteio" expanded="True" />
+                  <Node name="Principal.cs" selected="True" />
                 </Node>
+              </Node>
+            </Node>
+            <Node name="Assembly-CSharp-firstpass" expanded="True">
+              <Node name="Plugins" expanded="True">
+                <Node name="Android" expanded="True" />
               </Node>
             </Node>
           </Node>

@@ -231,6 +231,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 12
       objectReference: {fileID: 0}
+    - target: {fileID: 61000011309723272, guid: dfd0a045e6d3948419dd80f7224122f8,
+        type: 2}
+      propertyPath: m_Size.x
+      value: 1.35
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: dfd0a045e6d3948419dd80f7224122f8, type: 2}
   m_IsPrefabParent: 0
@@ -536,6 +541,11 @@ Prefab:
       propertyPath: m_Name
       value: ChaoFixoTipo_1 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 61000010018484916, guid: 3882620dc65310e4cb36744328c03bdf,
+        type: 2}
+      propertyPath: m_Size.x
+      value: 2.65
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3882620dc65310e4cb36744328c03bdf, type: 2}
   m_IsPrefabParent: 0
@@ -703,7 +713,7 @@ Prefab:
     - target: {fileID: 61000010018484916, guid: 3882620dc65310e4cb36744328c03bdf,
         type: 2}
       propertyPath: m_Size.x
-      value: 2.6
+      value: 2.65
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3882620dc65310e4cb36744328c03bdf, type: 2}
@@ -1402,7 +1412,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_Offset: {x: 3.82, y: 0.024716854}
   serializedVersion: 2
-  m_Size: {x: 10, y: 0.95056653}
+  m_Size: {x: 10.3, y: 0.95056653}
 --- !u!1 &851784399
 GameObject:
   m_ObjectHideFlags: 0
@@ -9333,7 +9343,7 @@ Prefab:
     - target: {fileID: 61000011436562782, guid: 255c5938320eb0e48ba5453cc4f31bc6,
         type: 2}
       propertyPath: m_Size.x
-      value: 11.48
+      value: 11.6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 255c5938320eb0e48ba5453cc4f31bc6, type: 2}
@@ -10308,7 +10318,7 @@ Prefab:
     - target: {fileID: 61000012126295660, guid: ffee19c97774aaf4da241ef133443e44,
         type: 2}
       propertyPath: m_Size.x
-      value: 2.54
+      value: 2.65
       objectReference: {fileID: 0}
     - target: {fileID: 114000012326471118, guid: ffee19c97774aaf4da241ef133443e44,
         type: 2}
@@ -10370,7 +10380,7 @@ Prefab:
     - target: {fileID: 61000014130293564, guid: a96cdc64e7a20f04dafd1cd5a8ced49f,
         type: 2}
       propertyPath: m_Size.x
-      value: 2.55
+      value: 2.65
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a96cdc64e7a20f04dafd1cd5a8ced49f, type: 2}

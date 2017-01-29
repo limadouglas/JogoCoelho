@@ -737,6 +737,22 @@ Prefab:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114328979416632566, guid: e63c9b1b1430167418facebeb3be54fe,
+        type: 2}
+      propertyPath: m_UiScaleMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114760706902427644, guid: e63c9b1b1430167418facebeb3be54fe,
+        type: 2}
+      propertyPath: m_FontData.m_FontSize
+      value: 32
+      objectReference: {fileID: 0}
+    - target: {fileID: 114760706902427644, guid: e63c9b1b1430167418facebeb3be54fe,
+        type: 2}
+      propertyPath: m_Text
+      value: "OBRIGADO POR AJUDAR LOLA ;-)\n\n\n\ndesenvolvido por Douglas Henrique\n\n\nP.S:
+        n\xE3o acredito que voc\xEA conseguiu zerar meu jogo ! \n\n\n : - /"
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e63c9b1b1430167418facebeb3be54fe, type: 2}
   m_IsPrefabParent: 0

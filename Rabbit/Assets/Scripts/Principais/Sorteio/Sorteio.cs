@@ -22,6 +22,8 @@ public class Sorteio : MonoBehaviour {
 
 		velocidadeEfeito = 0.1f;
 
+		// gameEngine.SendMessage ("mostrarBanner");
+
 		StartCoroutine (efeito());
 	}
 
@@ -29,7 +31,7 @@ public class Sorteio : MonoBehaviour {
 		
 	public void perdeuVida() {
 		Destroy (gameObject);
-		GameObject.Find ("gameEngine").SendMessage ("msgPerdeu", "Fim de Jogo");
+		gameEngine.SendMessage ("msgPerdeu", "Fim de Jogo");
 	}
 
 
@@ -37,7 +39,7 @@ public class Sorteio : MonoBehaviour {
 	public void ganhouVida() {
 		Destroy (gameObject);
 		PlayerPrefs.SetInt ("vida", 1);
-		GameObject.Find ("gameEngine").SendMessage ("msgPerdeu", "Ganhou uma Vida");
+		gameEngine.SendMessage ("msgPerdeu", "Ganhou uma Vida");
 	}
 
 
@@ -71,9 +73,9 @@ public class Sorteio : MonoBehaviour {
 			gameEngine.SendMessage ("sorteioSomVida");
 
 			for (int i = 0; i < 4; i++) {
-				yield return new WaitForSeconds (0.3f);
+				yield return new WaitForSeconds (0.2f);
 				seletorUm.SetActive (false);
-				yield return new WaitForSeconds (0.3f);
+				yield return new WaitForSeconds (0.2f);
 				seletorUm.SetActive (true);
 			}
 				
@@ -89,9 +91,9 @@ public class Sorteio : MonoBehaviour {
 			gameEngine.SendMessage ("sorteioSomDerrota");
 
 			for (int i = 0; i < 4; i++) {
-				yield return new WaitForSeconds (0.3f);
+				yield return new WaitForSeconds (0.2f);
 				seletorDois.SetActive (false);
-				yield return new WaitForSeconds (0.3f);
+				yield return new WaitForSeconds (0.2f);
 				seletorDois.SetActive (true);
 			}
 				
@@ -100,7 +102,7 @@ public class Sorteio : MonoBehaviour {
 
 		}
 
-		GameObject.Find ("gameEngine").SendMessage ("fecharBanner");
+		// gameEngine.SendMessage ("fecharBanner");
 	}
 
 }
