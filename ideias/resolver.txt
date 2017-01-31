@@ -5,19 +5,10 @@ BUGS:
 IDEIAS:
 
 
-criar efeito de onda.
-
 colocar objetos de fundo em todas as fases para dar um efeito realista.
-
-trocar efeitos sonoros.(cair na agua, cair no fogo, pulo coelho, morte coelho).implementar appodeal
 
 A FAZER:
 
-logo do jogo na tela inicial ao carregar o app.
-
-tela de transição entre as fases.
-
-tela final do jogo.
 
 
 

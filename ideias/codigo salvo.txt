@@ -1,9 +1,0 @@
-CORES:
-
-azul escuro: #512DA8 -> 8145168
-azul claro : #673AB7 -> 10358183
-
-roxo escuro: #7B1FA2 -> 12331162
-roxo claro : #9C27B0 -> 15639176
-
-laranja    : 

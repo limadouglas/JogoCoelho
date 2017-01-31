@@ -10,7 +10,7 @@ PlayerSettings:
   targetDevice: 2
   useOnDemandResources: 0
   accelerometerFrequency: 60
-  companyName: DefaultCompany
+  companyName: limaDouglas
   productName: Rabbit
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
@@ -200,7 +200,7 @@ PlayerSettings:
   AndroidKeyaliasName: 
   AndroidTVCompatibility: 1
   AndroidIsGame: 1
-  androidEnableBanner: 1
+  androidEnableBanner: 0
   m_AndroidBanners:
   - width: 320
     height: 180
@@ -217,27 +217,27 @@ PlayerSettings:
   - m_BuildTarget: Android
     m_Icons:
     - serializedVersion: 2
-      m_Icon: {fileID: 2800000, guid: 46561a64269ce7d42ac9be3603c3cb9d, type: 3}
+      m_Icon: {fileID: 2800000, guid: c5156bdc78d118b4b924bca919ee6dbc, type: 3}
       m_Width: 192
       m_Height: 192
     - serializedVersion: 2
-      m_Icon: {fileID: 2800000, guid: c1857da80d3a2dd4cb339ccf4bf9d3ca, type: 3}
+      m_Icon: {fileID: 2800000, guid: 1de4a258e03df684f9fee1974b338f74, type: 3}
       m_Width: 144
       m_Height: 144
     - serializedVersion: 2
-      m_Icon: {fileID: 2800000, guid: 3757d84a1d931d148bc1bb7c2dc3d7c7, type: 3}
+      m_Icon: {fileID: 2800000, guid: 414a511aaed918d40b22cb978908b41f, type: 3}
       m_Width: 96
       m_Height: 96
     - serializedVersion: 2
-      m_Icon: {fileID: 2800000, guid: bfc3269ac5d493f478545ea5d283f2db, type: 3}
+      m_Icon: {fileID: 2800000, guid: 25464f0be7e0011428a73d3afdf86188, type: 3}
       m_Width: 72
       m_Height: 72
     - serializedVersion: 2
-      m_Icon: {fileID: 2800000, guid: 82460abc73a7e504ea29a85c29f4a633, type: 3}
+      m_Icon: {fileID: 2800000, guid: ed5c05d63ca2ba945bff53849da97dbe, type: 3}
       m_Width: 48
       m_Height: 48
     - serializedVersion: 2
-      m_Icon: {fileID: 2800000, guid: 82460abc73a7e504ea29a85c29f4a633, type: 3}
+      m_Icon: {fileID: 2800000, guid: 25464f0be7e0011428a73d3afdf86188, type: 3}
       m_Width: 36
       m_Height: 36
   m_BuildTargetBatching: []
