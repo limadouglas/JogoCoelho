@@ -80,6 +80,13 @@ public class Principal : MonoBehaviour, IInterstitialAdListener { //, IBannerAdL
 				solo.SetActive (false);
 		}
 
+		if (SceneManager.GetActiveScene ().name == "Cena_2") {
+			player.GetComponent<Rigidbody2D> ().isKinematic = true;
+			player.transform.position = new Vector2 (player.transform.position.x, -1.1f);
+			GameObject.Find ("Solo").transform.position = new Vector2 (player.transform.position.x, GameObject.Find ("Solo").transform.position.y);	
+			GameObject.Find ("Solo").SendMessage ("parar");
+		}
+
 		if (PlayerPrefs.GetInt ("msgIniciar") == 1 ) {
 			if (PlayerPrefs.GetInt ("PrimeiraVez") != 1) {
 				primeiraVez.SetActive (true);
@@ -93,20 +100,17 @@ public class Principal : MonoBehaviour, IInterstitialAdListener { //, IBannerAdL
 				estaNoInicio = true;
 			}
 
-			if (SceneManager.GetActiveScene ().name == "Cena_2") {
-				player.transform.position = new Vector2 (player.transform.position.x, 0.3f);
-				GameObject.Find ("Solo").transform.position = new Vector2 (player.transform.position.x, GameObject.Find ("Solo").transform.position.y);	
-			}
-
 		} else
 			jogoInicio ();
+
+
 
 		somAtivadoDesativado ();								// verificando se o jogo ira iniciar com som.
 
 		// propaganda é carregado apenas quando for a ultima vida e estiver conectado na internet.
 		if(PlayerPrefs.GetInt("vida") <= 1 && Application.internetReachability != NetworkReachability.NotReachable) {
 			Appodeal.disableLocationPermissionCheck();
-			Appodeal.cache (Appodeal.INTERSTITIAL ); 			//| Appodeal.BANNER
+			Appodeal.cache (Appodeal.INTERSTITIAL); 			// | Appodeal.BANNER
 			Appodeal.initialize(appKey, Appodeal.INTERSTITIAL); //  | Appodeal.BANNER
 			Appodeal.setInterstitialCallbacks(this);
 		}
@@ -390,9 +394,12 @@ public class Principal : MonoBehaviour, IInterstitialAdListener { //, IBannerAdL
 				solo.SetActive (true);
 		}
 
-		player.transform.position = new Vector2 (player.transform.position.x, 1f);
+		player.GetComponent<Rigidbody2D> ().isKinematic = false;
+
+		GameObject.Find ("Solo").SendMessage ("retornar");
+
+		player.transform.position = new Vector2 (player.transform.position.x, -1.1f);
 		GameObject.Find("Solo").transform.position = new Vector2(PlayerPrefs.GetFloat("checkpoint"), GameObject.Find("Solo").transform.position.y);
-		//GameObject.Find ("Solo").GetComponent<Rigidbody2D> ().isKinematic = true;
 	}
 
 	// metodo so será chamado quando estiver na fase 3.

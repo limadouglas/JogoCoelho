@@ -3,10 +3,10 @@
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Main.cs">
     <Files>
       <File FileName="Assets\Scripts\Principais\Loading\Singleton.cs" Line="1" Column="1" />
-      <File FileName="Assets\Main.cs" Line="25" Column="34" />
+      <File FileName="Assets\Main.cs" Line="25" Column="5" />
       <File FileName="Assets\Scripts\Principais\BotaoPlayPause.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\Principais\BotaoMusica.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\fase_2\ObstaculoSolo.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\fase_2\ObstaculoSolo.cs" Line="93" Column="91" />
       <File FileName="Assets\Scripts\Principais\Fundo.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\fase_3\InimigoAlto.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\Principais\ScriptCamera.cs" Line="1" Column="1" />
@@ -21,7 +21,7 @@
       <File FileName="Assets\ParticulaRaio.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\Principais\InimigoMosca.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\fase_5\Fim.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Principais\Principal.cs" Line="110" Column="56" />
+      <File FileName="Assets\Scripts\Principais\Principal.cs" Line="401" Column="77" />
       <File FileName="Assets\Scripts\fase_5\CaramujoMovimentacao.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\Principais\Loading\SceneController.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\Principais\Sorteio\Sorteio.cs" Line="1" Column="1" />
@@ -33,6 +33,7 @@
             <Node name="Assembly-CSharp" expanded="True">
               <Node name="Scripts" expanded="True">
                 <Node name="fase_2" expanded="True" />
+                <Node name="fase_5" expanded="True" />
                 <Node name="Principais" expanded="True">
                   <Node name="Loading" expanded="True" />
                   <Node name="Sorteio" expanded="True" />
@@ -46,11 +47,6 @@
               </Node>
             </Node>
           </Node>
-        </State>
-      </Pad>
-      <Pad Id="MonoDevelop.NUnit.TestPad">
-        <State name="__root__">
-          <Node name="Rabbit" expanded="True" selected="True" />
         </State>
       </Pad>
     </Pads>

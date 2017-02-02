@@ -88,4 +88,9 @@ public class ObstaculoSolo : MonoBehaviour {
 		isParar = true;
 	}
 
+	void retornar() {
+		GetComponent<Animator> ().enabled = true;
+		GetComponent<Rigidbody2D> ().velocity = new Vector2 (-(velocidade) * Time.deltaTime, 0);
+		isParar = false;
+	}
 }
