@@ -11,7 +11,7 @@ PlayerSettings:
   useOnDemandResources: 0
   accelerometerFrequency: 60
   companyName: limaDouglas
-  productName: Rabbit
+  productName: Coelha Lola
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 0.13333334, g: 0.17254902, b: 0.21176471, a: 1}
@@ -196,8 +196,8 @@ PlayerSettings:
   AndroidTargetDevice: 0
   AndroidSplashScreenScale: 0
   androidSplashScreen: {fileID: 0}
-  AndroidKeystoreName: 
-  AndroidKeyaliasName: 
+  AndroidKeystoreName: C:/Users/dougl/OneDrive/Documentos/GitHub/JogoCoelho/Rabbit/userKey.keystore
+  AndroidKeyaliasName: dlimakey
   AndroidTVCompatibility: 1
   AndroidIsGame: 1
   androidEnableBanner: 0
